@@ -1,0 +1,53 @@
+def!=''/def	type!='adi-kat'/def	overwrite
+num!=''/num	type!='adi-kat'/num	no-overwrite
+per!=''/per	type!='adi-kat'/per	no-overwrite
+mi='[MG]'/mi	type!='adi-kat'/def	overwrite
+
+cas!=''/cas	/cas	concat
+cas!=''/ref	/casref	concat
+cas!=''/alloc	/casalloc	concat
+
+vpost!=''/vpost	/vpost	overwrite
+vpost!=''/ref	/vpostref	overwrite
+vpost!=''/alloc	/vpostalloc	overwrite
+
+pos='[ADB][ADOGAL]'/'+n[ERL][MEN][MOS]'	type='mend-p'/vpost	overwrite
+%Gehitu:
+%vpost!=''/ref	/vpostref	overwrite
+%vpost!=''/alloc	/vpostalloc	overwrite
+
+spost!=''/spost	/spost	concat
+spost!=''/ref	/spostref	concat
+spost!=''/alloc	/spostalloc	concat
+
+npost!=''/npost	/npost	concat
+npost!=''/ref	/npostref	concat
+npost!=''/alloc	/npostalloc	concat
+
+prep!=''/prep	/prep	concat
+prep!=''/ref	/casref	concat
+prep!=''/alloc	/casalloc	concat
+
+lem='' && prep='' && sub='' && cas=''/ref	/casref	concat
+lem='' && prep='' && sub='' && cas=''/alloc	/casalloc	concat
+
+pos='[Z]'/'[MG]'	/def	overwrite
+pos='[Zu]'/'[MG]'	/def	overwrite
+pos='[Zp]'/'[NUMS]'	/def	overwrite
+pos='[Z]' && lem>'1800' && lem<'2050'/'[NUMS]'	headpos=''/mi	overwrite
+pos!=''/pos	/headpos	no-overwrite
+lem!=''/lem	/headlem	no-overwrite
+sem!=''/sem	/headsem	no-overwrite
+pos='[Z]'/pos	/leafpos	overwrite
+
+/'true'	si='subj'/subject	overwrite
+
+smi='Fit'/'p-int'	/type	overwrite
+smi='Fia'/'p-int'	/type	overwrite
+
+pos='[ADB][ADOGAL]'/'wh'	/qtype	overwrite
+pos='[ADB][ALGGAL]'/'wh'	/qtype	overwrite
+pos='[IOR][IZGGAL]'/'wh'	/qtype	overwrite
+pos='[DET][NOLGAL]'/'wh'	/qtype	overwrite
+
+true/'[NUMP]'	type='subord' && si='dobj'/mi	overwrite

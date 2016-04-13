@@ -1,0 +1,14 @@
+trans='DIO'/'[ERG]'	si='subj'/cas	down	overwrite
+trans='DU'/'[ERG]'	si='subj'/cas	down	overwrite
+trans='ZAIO'/'[ABS]'	si='subj'/cas	down	overwrite
+trans='DA'/'[ABS]'	si='subj'/cas	down	overwrite
+
+type=~'emen'/cas	type='is'/cas	down	overwrite
+
+/'[MG]'	type!='adi-kat' && def='' && num='[NUMS]' && cas='[INS]'/mi	down	overwrite
+/'[MG]'	type!='adi-kat' && def='' && num='[NUMS]' && cas='[INS][GEL]'/mi	down	overwrite
+
+/'+[DEK][GEL]'	type='adi-inf' && rel='+n[ERL][MEN][MOS]'/cas	down	overwrite
+
+type=~'adi-kat'/'[ABS][NUMS]'	si='att' && cas='[GEL]'/cas	down	concat
+type=~'adi-kat'/'[ABS][NUMS]'	si='att' && cas='[GEN]'/cas	down	concat

@@ -2,7 +2,7 @@
 #### default configuration file for Spanish analyzer
 ##
 
-# REPLACE "MATXINDATADIR" with the right path to the data  
+# REPLACE "@MATXINDATADIR@" with the right path to the data  
 # directory in your Matxin installation (e.g. /usr/local/var/opentrad_matxin)
 
 #### General options 
@@ -13,10 +13,10 @@ Locale=default
 AlwaysFlush=no
 
 #### Tokenizer options
-TokenizerFile=MATXINDATADIR/freeling/es/tokenizer.dat
+TokenizerFile=@MATXINDATADIR@/freeling/es/tokenizer.dat
 
 #### Splitter options
-SplitterFile=MATXINDATADIR/freeling/es/splitter.dat
+SplitterFile=@MATXINDATADIR@/freeling/es/splitter.dat
 
 #### Morfo options
 AffixAnalysis=yes
@@ -30,32 +30,32 @@ ProbabilityAssignment=yes
 OrthographicCorrection=no
 DecimalPoint=,
 ThousandPoint=.
-LocutionsFile=MATXINDATADIR/freeling/es/locucions.dat 
-QuantitiesFile=MATXINDATADIR/freeling/es/quantities.dat
-AffixFile=MATXINDATADIR/freeling/es/afixos.dat
-ProbabilityFile=MATXINDATADIR/freeling/es/probabilitats.dat
-DictionaryFile=MATXINDATADIR/freeling/es/dicc.src
-PunctuationFile=MATXINDATADIR/freeling/common/punct.dat
+LocutionsFile=@MATXINDATADIR@/freeling/es/locucions.dat 
+QuantitiesFile=@MATXINDATADIR@/freeling/es/quantities.dat
+AffixFile=@MATXINDATADIR@/freeling/es/afixos.dat
+ProbabilityFile=@MATXINDATADIR@/freeling/es/probabilitats.dat
+DictionaryFile=@MATXINDATADIR@/freeling/es/dicc.src
+PunctuationFile=@MATXINDATADIR@/freeling/common/punct.dat
 ProbabilityThreshold=0.001
 # NER options
 NERecognition=yes
-NPDataFile=MATXINDATADIR/freeling/es/np.dat
+NPDataFile=@MATXINDATADIR@/freeling/es/np.dat
 ## --- comment line above and uncomment that below, if you want 
 ## --- a better NE recognizer (higer accuracy, lower speed)
-#NPDataFile=MATXINDATADIR/freeling/es/ner/ner-ab.dat
+#NPDataFile=@MATXINDATADIR@/freeling/es/ner/ner-ab.dat
 
 #Spelling Corrector config file
-CorrectorFile=MATXINDATADIR/freeling/es/corrector/corrector.dat
+CorrectorFile=@MATXINDATADIR@/freeling/es/corrector/corrector.dat
 
 ## NEC options
 NEClassification=no
-NECFile=MATXINDATADIR/freeling/es/nec/nec-svm.dat
+NECFile=@MATXINDATADIR@/freeling/es/nec/nec-svm.dat
 
 #### Tagger options
 #Tagger=hmm
 Tagger=relax
-TaggerHMMFile=MATXINDATADIR/freeling/es/tagger.dat
-TaggerRelaxFile=MATXINDATADIR/freeling/es/constr_gram.dat
+TaggerHMMFile=@MATXINDATADIR@/freeling/es/tagger.dat
+TaggerRelaxFile=@MATXINDATADIR@/freeling/es/constr_gram.dat
 TaggerRelaxMaxIter=500
 TaggerRelaxScaleFactor=670.0
 TaggerRelaxEpsilon=0.001
@@ -64,36 +64,36 @@ TaggerRetokenize=yes
 TaggerForceSelect=retok
 
 #### Parser options
-GrammarFile=MATXINDATADIR/freeling/es/chunker/grammar-chunk.dat
+GrammarFile=@MATXINDATADIR@/freeling/es/chunker/grammar-chunk.dat
 
 #### Dependence Parser options
-DepTxalaFile=MATXINDATADIR/freeling/es/dep/dependences.dat
+DepTxalaFile=@MATXINDATADIR@/freeling/es/dep/dependences.dat
 
 ###################
 #### Matxin Options
 ###################
 
-TransDictFile=MATXINDATADIR/dict/es-eu/bilingual.bin
-ChunkTypeDict=MATXINDATADIR/dict/es-eu/chunk_type.dat
-NounSemFile=MATXINDATADIR/dict/eu/semantic.dat
-IntraMoveFile=MATXINDATADIR/gram/es-eu/intrachunk_move.dat
-InterMoveFile1=MATXINDATADIR/gram/es-eu/interchunk_move1.dat
-InterMoveFile2=MATXINDATADIR/gram/es-eu/interchunk_move2.dat
-InterMoveFile3=MATXINDATADIR/gram/es-eu/interchunk_move3.dat
-GenerationMoveFile=MATXINDATADIR/gram/eu/generation_move.dat
-SubCatFile=MATXINDATADIR/dict/eu/verb_subcat.dat
-PrepFile=MATXINDATADIR/dict/es-eu/prep.dat
-LexSelFile=MATXINDATADIR/dict/es-eu/lexical_selection.dat
-TripletsFile=MATXINDATADIR/dict/eu/verb_noun_subcat.dat
-VerbTransferFile=MATXINDATADIR/gram/es-eu/verb_transfer.fst
-ChunkOrderFile=MATXINDATADIR/gram/es-eu/interchunk_order.dat
-NodeOrderFile=MATXINDATADIR/gram/eu/intrachunk_order.dat
-POSTransFile=MATXINDATADIR/dict/es-eu/changes_sint.dat
-MorphGenFile=MATXINDATADIR/dict/eu/morph_gen.bin
-MeasuresGenFile=MATXINDATADIR/dict/eu/measures_gen.bin
-NoLexGenFile=MATXINDATADIR/dict/eu/morph_nolex.bin
-GenerationTagsFile=MATXINDATADIR/dict/es-eu/changes_morph.bin
-TagOrderFile=MATXINDATADIR/gram/eu/morph_preproc.dat
+TransDictFile=@MATXINDATADIR@/matxin-spa-eus/spa-eus.bilingual.bin
+VerbTransferFile=@MATXINDATADIR@/matxin-spa-eus/spa-eus.verb_transfer.fst
+GenerationTagsFile=@MATXINDATADIR@/matxin-spa-eus/spa-eus.changes.bin
+ChunkTypeDict=@MATXINDATADIR@/dict/es-eu/chunk_type.dat
+NounSemFile=@MATXINDATADIR@/dict/eu/semantic.dat
+IntraMoveFile=@MATXINDATADIR@/gram/es-eu/intrachunk_move.dat
+InterMoveFile1=@MATXINDATADIR@/gram/es-eu/interchunk_move1.dat
+InterMoveFile2=@MATXINDATADIR@/gram/es-eu/interchunk_move2.dat
+InterMoveFile3=@MATXINDATADIR@/gram/es-eu/interchunk_move3.dat
+GenerationMoveFile=@MATXINDATADIR@/gram/eu/generation_move.dat
+SubCatFile=@MATXINDATADIR@/dict/eu/verb_subcat.dat
+PrepFile=@MATXINDATADIR@/dict/es-eu/prep.dat
+LexSelFile=@MATXINDATADIR@/dict/es-eu/lexical_selection.dat
+TripletsFile=@MATXINDATADIR@/dict/eu/verb_noun_subcat.dat
+ChunkOrderFile=@MATXINDATADIR@/gram/es-eu/interchunk_order.dat
+NodeOrderFile=@MATXINDATADIR@/gram/eu/intrachunk_order.dat
+POSTransFile=@MATXINDATADIR@/dict/es-eu/changes_sint.dat
+MorphGenFile=@MATXINDATADIR@/dict/eu/morph_gen.bin
+MeasuresGenFile=@MATXINDATADIR@/dict/eu/measures_gen.bin
+NoLexGenFile=@MATXINDATADIR@/dict/eu/morph_nolex.bin
+TagOrderFile=@MATXINDATADIR@/gram/eu/morph_preproc.dat
 
 FirstCase=yes
 UsePrepRules=yes

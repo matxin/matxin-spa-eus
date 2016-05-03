@@ -979,7 +979,7 @@ echo >> + Save all transucer of the stack in one .fst fils
 echo >> ======================================== ; 
 
 
-save stack ./verb_transfer.fst
+save stack ./spa-eus.verb_transfer.fst
 
 echo  >> Bukatu du
 echo  >> Finish

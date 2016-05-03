@@ -267,14 +267,22 @@ AC_CHECK_LIB(foma, main, [true],AC_MSG_ERROR([foma found]))
 PKG_CHECK_MODULES(MATXIN, [dnl
  lttoolbox >= required_lttoolbox_version dnl
  libxml-2.0 >= required_libxml_version dnl
- matxin >= required_matxin_version dnl
+  matxin >= required_matxin_version dnl
  libpcre >= required_libpcre_version], CPPFLAGS="$CPPFLAGS $MATXIN_CPPFLAGS $MATXIN_CFLAGS"; LIBS="$LIBS $MATXIN_LIBS")
+
+m4_ifdef([AP_CHECK_LING],[],[AC_MSG_ERROR([AP_CHECK_LING not defined, is matxin.m4 in ACLOCAL_PATH? See: http://wiki.apertium.org/wiki/Installation_troubleshooting])])
+
+AP_CHECK_LING([1], [matxin-spa])
+AP_CHECK_LING([2], [matxin-eus])
+
+AP_MKINCLUDE
 
 #
 # Generate these files
 #
 AC_CONFIG_FILES([
                  Makefile
+		 matxin-spa-eus.spa-eus.cfg
                  ])
 AC_OUTPUT
 

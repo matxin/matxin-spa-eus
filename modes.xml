@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modes>
+
+  <mode name="spa-eus-analyser" install="no">
+    <pipeline>
+      <program name="matxin-analyser -f">
+        <file name="spa-eus.cfg"/>
+      </program>
+    </pipeline>
+
+  </mode>
+
+  <mode name="spa-eus-xfer-lex" install="no">
+    <pipeline>
+      <program name="matxin-analyser -f">
+        <file name="spa-eus.cfg"/>
+      </program>
+      <program name="matxin-xfer-lex"> 
+        <file name="spa-eus.bilingual.bin"/>
+        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
+        <file name="spa-eus.chunk_type.dat"/> <!-- matxin-spa-eus.chunk_type.dat -->
+        <file name="spa-eus.lexical_selection.dat"/> <!-- matxin-spa-eus.lexical_selection.dat -->
+      </program>
+      <program name="matxin-xfer-intra">
+        <file name="spa-eus.cfg"/>
+      </program>
+    </pipeline>
+  </mode>
+
+  <mode name="spa-eus-xfer-intra" install="no">
+    <pipeline>
+      <program name="matxin-analyser -f">
+        <file name="spa-eus.cfg"/>
+      </program>
+      <program name="matxin-xfer-lex"> 
+        <file name="spa-eus.bilingual.bin"/>
+        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
+        <file name="spa-eus.chunk_type.dat"/> <!-- matxin-spa-eus.chunk_type.dat -->
+        <file name="spa-eus.lexical_selection.dat"/> <!-- matxin-spa-eus.lexical_selection.dat -->
+      </program>
+      <program name="matxin-xfer-intra"> 
+        <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
+      </program>
+    </pipeline>
+  </mode>
+
+  <mode name="spa-eus-xfer-inter1" install="no">
+    <pipeline>
+      <program name="matxin-analyser -f">
+        <file name="spa-eus.cfg"/>
+      </program>
+      <program name="matxin-xfer-lex"> 
+        <file name="spa-eus.bilingual.bin"/>
+        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
+        <file name="spa-eus.chunk_type.dat"/> <!-- matxin-spa-eus.chunk_type.dat -->
+        <file name="spa-eus.lexical_selection.dat"/> <!-- matxin-spa-eus.lexical_selection.dat -->
+      </program>
+      <program name="matxin-xfer-intra"> 
+        <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
+      </program>
+      <program name="matxin-xfer-inter --inter 1"> 
+        <file name="spa-eus.interchunk_move1.dat"/> <!--matxin-spa-eus.interchunk_move1.dat-->
+      </program>
+    </pipeline>
+  </mode>
+
+  <mode name="spa-eus-xfer-prep" install="no">
+    <pipeline>
+      <program name="matxin-analyser -f">
+        <file name="spa-eus.cfg"/>
+      </program>
+      <program name="matxin-xfer-lex"> 
+        <file name="spa-eus.bilingual.bin"/>
+        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
+        <file name="spa-eus.chunk_type.dat"/> <!-- matxin-spa-eus.chunk_type.dat -->
+        <file name="spa-eus.lexical_selection.dat"/> <!-- matxin-spa-eus.lexical_selection.dat -->
+      </program>
+      <program name="matxin-xfer-intra"> 
+        <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
+      </program>
+      <program name="matxin-xfer-inter --inter 1"> 
+        <file name="spa-eus.interchunk_move1.dat"/> <!--matxin-spa-eus.interchunk_move1.dat-->
+      </program>
+      <program name="matxin-xfer-prep"> 
+        <file name="spa-eus.prep.dat"/> 
+        <file name="eus.verb_subcat.dat"/> 
+        <file name="eus.verb_noun_subcat.dat"/> 
+      </program>
+    </pipeline>
+  </mode>
+
+  <mode name="spa-eus-xfer-inter2" install="no">
+    <pipeline>
+      <program name="matxin-analyser -f">
+        <file name="spa-eus.cfg"/>
+      </program>
+      <program name="matxin-xfer-lex"> 
+        <file name="spa-eus.bilingual.bin"/>
+        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
+        <file name="spa-eus.chunk_type.dat"/> <!-- matxin-spa-eus.chunk_type.dat -->
+        <file name="spa-eus.lexical_selection.dat"/> <!-- matxin-spa-eus.lexical_selection.dat -->
+      </program>
+      <program name="matxin-xfer-intra"> 
+        <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
+      </program>
+      <program name="matxin-xfer-inter --inter 1"> 
+        <file name="spa-eus.interchunk_move1.dat"/> <!--matxin-spa-eus.interchunk_move1.dat-->
+      </program>
+      <program name="matxin-xfer-prep"> 
+        <file name="spa-eus.prep.dat"/> 
+        <file name="eus.verb_subcat.dat"/> 
+        <file name="eus.verb_noun_subcat.dat"/> 
+      </program>
+      <program name="matxin-xfer-inter --inter 2"> 
+        <file name="spa-eus.interchunk_move2.dat"/> <!--matxin-spa-eus.interchunk_move2.dat-->
+      </program>
+    </pipeline>
+  </mode>
+
+  <mode name="spa-eus-xfer-verb" install="no">
+    <pipeline>
+      <program name="matxin-analyser -f">
+        <file name="spa-eus.cfg"/>
+      </program>
+      <program name="matxin-xfer-lex"> 
+        <file name="spa-eus.bilingual.bin"/>
+        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
+        <file name="spa-eus.chunk_type.dat"/> <!-- matxin-spa-eus.chunk_type.dat -->
+        <file name="spa-eus.lexical_selection.dat"/> <!-- matxin-spa-eus.lexical_selection.dat -->
+      </program>
+      <program name="matxin-xfer-intra"> 
+        <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
+      </program>
+      <program name="matxin-xfer-inter --inter 1"> 
+        <file name="spa-eus.interchunk_move1.dat"/> <!--matxin-spa-eus.interchunk_move1.dat-->
+      </program>
+      <program name="matxin-xfer-prep"> 
+        <file name="spa-eus.prep.dat"/> 
+        <file name="eus.verb_subcat.dat"/> 
+        <file name="eus.verb_noun_subcat.dat"/> 
+      </program>
+      <program name="matxin-xfer-inter --inter 2"> 
+        <file name="spa-eus.interchunk_move2.dat"/> <!--matxin-spa-eus.interchunk_move2.dat-->
+      </program>
+      <program name="matxin-xfer-verb"> 
+        <file name="spa-eus.verb_transfer.fst"/>
+      </program>
+    </pipeline>
+  </mode>
+
+  <mode name="spa-eus-xfer-inter3" install="no">
+    <pipeline>
+      <program name="matxin-analyser -f">
+        <file name="spa-eus.cfg"/>
+      </program>
+      <program name="matxin-xfer-lex"> 
+        <file name="spa-eus.bilingual.bin"/>
+        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
+        <file name="spa-eus.chunk_type.dat"/> <!-- matxin-spa-eus.chunk_type.dat -->
+        <file name="spa-eus.lexical_selection.dat"/> <!-- matxin-spa-eus.lexical_selection.dat -->
+      </program>
+      <program name="matxin-xfer-intra"> 
+        <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
+      </program>
+      <program name="matxin-xfer-inter --inter 1"> 
+        <file name="spa-eus.interchunk_move1.dat"/> <!--matxin-spa-eus.interchunk_move1.dat-->
+      </program>
+      <program name="matxin-xfer-prep"> 
+        <file name="spa-eus.prep.dat"/> 
+        <file name="eus.verb_subcat.dat"/> 
+        <file name="eus.verb_noun_subcat.dat"/> 
+      </program>
+      <program name="matxin-xfer-inter --inter 2"> 
+        <file name="spa-eus.interchunk_move2.dat"/> <!--matxin-spa-eus.interchunk_move2.dat-->
+      </program>
+      <program name="matxin-xfer-verb"> 
+        <file name="spa-eus.verb_transfer.fst"/>
+      </program>
+      <program name="matxin-xfer-inter --inter 3"> 
+        <file name="spa-eus.interchunk_move3.dat"/> <!--matxin-spa-eus.interchunk_move3.dat-->
+      </program>
+    </pipeline>
+  </mode>
+
+  <mode name="spa-eus-gen-inter" install="no">
+    <pipeline>
+      <program name="matxin-analyser -f">
+        <file name="spa-eus.cfg"/>
+      </program>
+      <program name="matxin-xfer-lex"> 
+        <file name="spa-eus.bilingual.bin"/>
+        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
+        <file name="spa-eus.chunk_type.dat"/> <!-- matxin-spa-eus.chunk_type.dat -->
+        <file name="spa-eus.lexical_selection.dat"/> <!-- matxin-spa-eus.lexical_selection.dat -->
+      </program>
+      <program name="matxin-xfer-intra"> 
+        <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
+      </program>
+      <program name="matxin-xfer-inter --inter 1"> 
+        <file name="spa-eus.interchunk_move1.dat"/> <!--matxin-spa-eus.interchunk_move1.dat-->
+      </program>
+      <program name="matxin-xfer-prep"> 
+        <file name="spa-eus.prep.dat"/> 
+        <file name="eus.verb_subcat.dat"/> 
+        <file name="eus.verb_noun_subcat.dat"/> 
+      </program>
+      <program name="matxin-xfer-inter --inter 2"> 
+        <file name="spa-eus.interchunk_move2.dat"/> <!--matxin-spa-eus.interchunk_move2.dat-->
+      </program>
+      <program name="matxin-xfer-verb"> 
+        <file name="spa-eus.verb_transfer.fst"/>
+      </program>
+      <program name="matxin-xfer-inter --inter 3"> 
+        <file name="spa-eus.interchunk_move3.dat"/> <!--matxin-spa-eus.interchunk_move3.dat-->
+      </program>
+      <program name="matxin-gen-inter"> 
+        <file name="spa-eus.interchunk_order.dat"/>
+      </program>
+    </pipeline>
+  </mode>
+
+  <mode name="spa-eus-gen-intra" install="no">
+    <pipeline>
+      <program name="matxin-analyser -f">
+        <file name="spa-eus.cfg"/>
+      </program>
+      <program name="matxin-xfer-lex"> 
+        <file name="spa-eus.bilingual.bin"/>
+        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
+        <file name="spa-eus.chunk_type.dat"/> <!-- matxin-spa-eus.chunk_type.dat -->
+        <file name="spa-eus.lexical_selection.dat"/> <!-- matxin-spa-eus.lexical_selection.dat -->
+      </program>
+      <program name="matxin-xfer-intra"> 
+        <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
+      </program>
+      <program name="matxin-xfer-inter --inter 1"> 
+        <file name="spa-eus.interchunk_move1.dat"/> <!--matxin-spa-eus.interchunk_move1.dat-->
+      </program>
+      <program name="matxin-xfer-prep"> 
+        <file name="spa-eus.prep.dat"/> 
+        <file name="eus.verb_subcat.dat"/> 
+        <file name="eus.verb_noun_subcat.dat"/> 
+      </program>
+      <program name="matxin-xfer-inter --inter 2"> 
+        <file name="spa-eus.interchunk_move2.dat"/> <!--matxin-spa-eus.interchunk_move2.dat-->
+      </program>
+      <program name="matxin-xfer-verb"> 
+        <file name="spa-eus.verb_transfer.fst"/>
+      </program>
+      <program name="matxin-xfer-inter --inter 3"> 
+        <file name="spa-eus.interchunk_move3.dat"/> <!--matxin-spa-eus.interchunk_move3.dat-->
+      </program>
+      <program name="matxin-gen-inter"> 
+        <file name="spa-eus.interchunk_order.dat"/>
+      </program>
+      <program name="matxin-gen-intra"> 
+        <file name="eus.intrachunk_order.dat"/>
+        <file name="spa-eus.changes_sint.dat"/>
+      </program>
+    </pipeline>
+  </mode>
+
+  <mode name="spa-eus-gen-move" install="no">
+    <pipeline>
+      <program name="matxin-analyser -f">
+        <file name="spa-eus.cfg"/>
+      </program>
+      <program name="matxin-xfer-lex"> 
+        <file name="spa-eus.bilingual.bin"/>
+        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
+        <file name="spa-eus.chunk_type.dat"/> <!-- matxin-spa-eus.chunk_type.dat -->
+        <file name="spa-eus.lexical_selection.dat"/> <!-- matxin-spa-eus.lexical_selection.dat -->
+      </program>
+      <program name="matxin-xfer-intra"> 
+        <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
+      </program>
+      <program name="matxin-xfer-inter --inter 1"> 
+        <file name="spa-eus.interchunk_move1.dat"/> <!--matxin-spa-eus.interchunk_move1.dat-->
+      </program>
+      <program name="matxin-xfer-prep"> 
+        <file name="spa-eus.prep.dat"/> 
+        <file name="eus.verb_subcat.dat"/> 
+        <file name="eus.verb_noun_subcat.dat"/> 
+      </program>
+      <program name="matxin-xfer-inter --inter 2"> 
+        <file name="spa-eus.interchunk_move2.dat"/> <!--matxin-spa-eus.interchunk_move2.dat-->
+      </program>
+      <program name="matxin-xfer-verb"> 
+        <file name="spa-eus.verb_transfer.fst"/>
+      </program>
+      <program name="matxin-xfer-inter --inter 3"> 
+        <file name="spa-eus.interchunk_move3.dat"/> <!--matxin-spa-eus.interchunk_move3.dat-->
+      </program>
+      <program name="matxin-gen-inter"> 
+        <file name="spa-eus.interchunk_order.dat"/>
+      </program>
+      <program name="matxin-gen-intra"> 
+        <file name="eus.intrachunk_order.dat"/>
+        <file name="spa-eus.changes_sint.dat"/>
+      </program>
+      <program name="matxin-gen-move"> 
+        <file name="eus.generation_move.dat"/>
+      </program>
+    </pipeline>
+  </mode>
+
+  <mode name="spa-eus-gen-morf" install="no">
+    <pipeline>
+      <program name="matxin-analyser -f">
+        <file name="spa-eus.cfg"/>
+      </program>
+      <program name="matxin-xfer-lex"> 
+        <file name="spa-eus.bilingual.bin"/>
+        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
+        <file name="spa-eus.chunk_type.dat"/> <!-- matxin-spa-eus.chunk_type.dat -->
+        <file name="spa-eus.lexical_selection.dat"/> <!-- matxin-spa-eus.lexical_selection.dat -->
+      </program>
+      <program name="matxin-xfer-intra"> 
+        <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
+      </program>
+      <program name="matxin-xfer-inter --inter 1"> 
+        <file name="spa-eus.interchunk_move1.dat"/> <!--matxin-spa-eus.interchunk_move1.dat-->
+      </program>
+      <program name="matxin-xfer-prep"> 
+        <file name="spa-eus.prep.dat"/> 
+        <file name="eus.verb_subcat.dat"/> 
+        <file name="eus.verb_noun_subcat.dat"/> 
+      </program>
+      <program name="matxin-xfer-inter --inter 2"> 
+        <file name="spa-eus.interchunk_move2.dat"/> <!--matxin-spa-eus.interchunk_move2.dat-->
+      </program>
+      <program name="matxin-xfer-verb"> 
+        <file name="spa-eus.verb_transfer.fst"/>
+      </program>
+      <program name="matxin-xfer-inter --inter 3"> 
+        <file name="spa-eus.interchunk_move3.dat"/> <!--matxin-spa-eus.interchunk_move3.dat-->
+      </program>
+      <program name="matxin-gen-inter"> 
+        <file name="spa-eus.interchunk_order.dat"/>
+      </program>
+      <program name="matxin-gen-intra"> 
+        <file name="eus.intrachunk_order.dat"/>
+        <file name="spa-eus.changes_sint.dat"/>
+      </program>
+      <program name="matxin-gen-move"> 
+        <file name="eus.generation_move.dat"/>
+      </program>
+      <program name="matxin-gen-morf"> 
+        <file name="spa-eus.changes_morph.bin"/>
+        <file name="eus.morph_gen.bin"/>
+        <file name="eus.measures_gen.bin"/>
+        <file name="eus.morph_nolex.bin"/>
+      </program>
+    </pipeline>
+  </mode>
+
+  <mode name="spa-eus" install="yes">
+    <pipeline>
+      <program name="matxin-analyser -f">
+        <file name="spa-eus.cfg"/>
+      </program>
+      <program name="matxin-xfer-lex"> 
+        <file name="spa-eus.bilingual.bin"/>
+        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
+        <file name="spa-eus.chunk_type.dat"/> <!-- matxin-spa-eus.chunk_type.dat -->
+        <file name="spa-eus.lexical_selection.dat"/> <!-- matxin-spa-eus.lexical_selection.dat -->
+      </program>
+      <program name="matxin-xfer-intra"> 
+        <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
+      </program>
+      <program name="matxin-xfer-inter --inter 1"> 
+        <file name="spa-eus.interchunk_move1.dat"/> <!--matxin-spa-eus.interchunk_move1.dat-->
+      </program>
+      <program name="matxin-xfer-prep"> 
+        <file name="spa-eus.prep.dat"/> 
+        <file name="eus.verb_subcat.dat"/> 
+        <file name="eus.verb_noun_subcat.dat"/> 
+      </program>
+      <program name="matxin-xfer-inter --inter 2"> 
+        <file name="spa-eus.interchunk_move2.dat"/> <!--matxin-spa-eus.interchunk_move2.dat-->
+      </program>
+      <program name="matxin-xfer-verb"> 
+        <file name="spa-eus.verb_transfer.fst"/>
+      </program>
+      <program name="matxin-xfer-inter --inter 3"> 
+        <file name="spa-eus.interchunk_move3.dat"/> <!--matxin-spa-eus.interchunk_move3.dat-->
+      </program>
+      <program name="matxin-gen-inter"> 
+        <file name="spa-eus.interchunk_order.dat"/>
+      </program>
+      <program name="matxin-gen-intra"> 
+        <file name="eus.intrachunk_order.dat"/>
+        <file name="spa-eus.changes_sint.dat"/>
+      </program>
+      <program name="matxin-gen-move"> 
+        <file name="eus.generation_move.dat"/>
+      </program>
+      <program name="matxin-gen-morf"> 
+        <file name="spa-eus.changes_morph.bin"/>
+        <file name="eus.morph_gen.bin"/>
+        <file name="eus.measures_gen.bin"/>
+        <file name="eus.morph_nolex.bin"/>
+      </program>
+    </pipeline>
+  </mode>
+
+
+
+</modes>
+

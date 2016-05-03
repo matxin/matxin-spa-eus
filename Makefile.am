@@ -9,7 +9,10 @@ BASENAME=matxin-$(PREFIX1)
 
 TARGETS_COMMON=$(PREFIX1).verb_transfer.fst \
 	       $(PREFIX1).bilingual.bin \
-	       $(PREFIX1).changes.bin 
+	       $(PREFIX1).changes.bin \
+	       $(PREFIX1).cfg
+
+@ap_include@
 
 ###############################################################################
 
@@ -21,6 +24,9 @@ $(PREFIX1).bilingual.bin: $(BASENAME).bilingual_mur.xml
 
 $(PREFIX1).changes.bin: $(BASENAME).changes_morph.xml
 	lt-comp lr $< $@
+
+$(PREFIX1).cfg: $(BASENAME).$(PREFIX1).cfg
+	cat $<  > $@
 
 ###############################################################################
 
@@ -43,3 +49,13 @@ matxin_spa_eusdir=$(prefix)/share/matxin/$(BASENAME)
 matxin_spa_eus_srcdir=$(prefix)/share/matxin/$(BASENAME)
 
 matxin_spa_eus_DATA=$(TARGETS_COMMON)
+
+# All modes are created by the same goal, listing several will just give problems with make -j2
+noinst_DATA=modes/$(PREFIX1).mode
+
+install-data-local: install-modes
+
+CLEANFILES = $(TARGETS_COMMON)
+clean-local:
+	-rm -rf .deps modes
+

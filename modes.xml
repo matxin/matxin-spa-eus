@@ -251,8 +251,8 @@
         <file name="spa-eus.interchunk_order.dat"/>
       </program>
       <program name="matxin-gen-intra"> 
-        <file name="eus.intrachunk_order.dat"/>
         <file name="spa-eus.changes_sint.dat"/>
+        <file name="eus.intrachunk_order.dat"/>
       </program>
     </pipeline>
   </mode>
@@ -292,8 +292,8 @@
         <file name="spa-eus.interchunk_order.dat"/>
       </program>
       <program name="matxin-gen-intra"> 
-        <file name="eus.intrachunk_order.dat"/>
         <file name="spa-eus.changes_sint.dat"/>
+        <file name="eus.intrachunk_order.dat"/>
       </program>
       <program name="matxin-gen-move"> 
         <file name="eus.generation_move.dat"/>
@@ -336,8 +336,8 @@
         <file name="spa-eus.interchunk_order.dat"/>
       </program>
       <program name="matxin-gen-intra"> 
-        <file name="eus.intrachunk_order.dat"/>
         <file name="spa-eus.changes_sint.dat"/>
+        <file name="eus.intrachunk_order.dat"/>
       </program>
       <program name="matxin-gen-move"> 
         <file name="eus.generation_move.dat"/>
@@ -386,14 +386,15 @@
         <file name="spa-eus.interchunk_order.dat"/>
       </program>
       <program name="matxin-gen-intra"> 
-        <file name="eus.intrachunk_order.dat"/>
         <file name="spa-eus.changes_sint.dat"/>
+        <file name="eus.intrachunk_order.dat"/>
       </program>
       <program name="matxin-gen-move"> 
         <file name="eus.generation_move.dat"/>
       </program>
       <program name="matxin-gen-morf"> 
         <file name="spa-eus.changes_morph.bin"/>
+        <file name="eus.morph_preproc.dat"/>
         <file name="eus.morph_gen.bin"/>
         <file name="eus.measures_gen.bin"/>
         <file name="eus.morph_nolex.bin"/>

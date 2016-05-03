@@ -17,12 +17,9 @@
       </program>
       <program name="matxin-xfer-lex"> 
         <file name="spa-eus.bilingual.bin"/>
-        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
         <file name="spa-eus.chunk_type.dat"/> <!-- matxin-spa-eus.chunk_type.dat -->
         <file name="spa-eus.lexical_selection.dat"/> <!-- matxin-spa-eus.lexical_selection.dat -->
-      </program>
-      <program name="matxin-xfer-intra">
-        <file name="spa-eus.cfg"/>
+        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
       </program>
     </pipeline>
   </mode>
@@ -34,9 +31,9 @@
       </program>
       <program name="matxin-xfer-lex"> 
         <file name="spa-eus.bilingual.bin"/>
-        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
         <file name="spa-eus.chunk_type.dat"/> <!-- matxin-spa-eus.chunk_type.dat -->
         <file name="spa-eus.lexical_selection.dat"/> <!-- matxin-spa-eus.lexical_selection.dat -->
+        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
       </program>
       <program name="matxin-xfer-intra"> 
         <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
@@ -51,9 +48,9 @@
       </program>
       <program name="matxin-xfer-lex"> 
         <file name="spa-eus.bilingual.bin"/>
-        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
         <file name="spa-eus.chunk_type.dat"/> <!-- matxin-spa-eus.chunk_type.dat -->
         <file name="spa-eus.lexical_selection.dat"/> <!-- matxin-spa-eus.lexical_selection.dat -->
+        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
       </program>
       <program name="matxin-xfer-intra"> 
         <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
@@ -71,9 +68,9 @@
       </program>
       <program name="matxin-xfer-lex"> 
         <file name="spa-eus.bilingual.bin"/>
-        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
         <file name="spa-eus.chunk_type.dat"/> <!-- matxin-spa-eus.chunk_type.dat -->
         <file name="spa-eus.lexical_selection.dat"/> <!-- matxin-spa-eus.lexical_selection.dat -->
+        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
       </program>
       <program name="matxin-xfer-intra"> 
         <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
@@ -96,9 +93,9 @@
       </program>
       <program name="matxin-xfer-lex"> 
         <file name="spa-eus.bilingual.bin"/>
-        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
         <file name="spa-eus.chunk_type.dat"/> <!-- matxin-spa-eus.chunk_type.dat -->
         <file name="spa-eus.lexical_selection.dat"/> <!-- matxin-spa-eus.lexical_selection.dat -->
+        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
       </program>
       <program name="matxin-xfer-intra"> 
         <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
@@ -124,9 +121,9 @@
       </program>
       <program name="matxin-xfer-lex"> 
         <file name="spa-eus.bilingual.bin"/>
-        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
         <file name="spa-eus.chunk_type.dat"/> <!-- matxin-spa-eus.chunk_type.dat -->
         <file name="spa-eus.lexical_selection.dat"/> <!-- matxin-spa-eus.lexical_selection.dat -->
+        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
       </program>
       <program name="matxin-xfer-intra"> 
         <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
@@ -155,9 +152,9 @@
       </program>
       <program name="matxin-xfer-lex"> 
         <file name="spa-eus.bilingual.bin"/>
-        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
         <file name="spa-eus.chunk_type.dat"/> <!-- matxin-spa-eus.chunk_type.dat -->
         <file name="spa-eus.lexical_selection.dat"/> <!-- matxin-spa-eus.lexical_selection.dat -->
+        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
       </program>
       <program name="matxin-xfer-intra"> 
         <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
@@ -189,9 +186,9 @@
       </program>
       <program name="matxin-xfer-lex"> 
         <file name="spa-eus.bilingual.bin"/>
-        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
         <file name="spa-eus.chunk_type.dat"/> <!-- matxin-spa-eus.chunk_type.dat -->
         <file name="spa-eus.lexical_selection.dat"/> <!-- matxin-spa-eus.lexical_selection.dat -->
+        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
       </program>
       <program name="matxin-xfer-intra"> 
         <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
@@ -226,9 +223,9 @@
       </program>
       <program name="matxin-xfer-lex"> 
         <file name="spa-eus.bilingual.bin"/>
-        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
         <file name="spa-eus.chunk_type.dat"/> <!-- matxin-spa-eus.chunk_type.dat -->
         <file name="spa-eus.lexical_selection.dat"/> <!-- matxin-spa-eus.lexical_selection.dat -->
+        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
       </program>
       <program name="matxin-xfer-intra"> 
         <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
@@ -267,9 +264,9 @@
       </program>
       <program name="matxin-xfer-lex"> 
         <file name="spa-eus.bilingual.bin"/>
-        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
         <file name="spa-eus.chunk_type.dat"/> <!-- matxin-spa-eus.chunk_type.dat -->
         <file name="spa-eus.lexical_selection.dat"/> <!-- matxin-spa-eus.lexical_selection.dat -->
+        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
       </program>
       <program name="matxin-xfer-intra"> 
         <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
@@ -311,9 +308,9 @@
       </program>
       <program name="matxin-xfer-lex"> 
         <file name="spa-eus.bilingual.bin"/>
-        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
         <file name="spa-eus.chunk_type.dat"/> <!-- matxin-spa-eus.chunk_type.dat -->
         <file name="spa-eus.lexical_selection.dat"/> <!-- matxin-spa-eus.lexical_selection.dat -->
+        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
       </program>
       <program name="matxin-xfer-intra"> 
         <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
@@ -361,9 +358,9 @@
       </program>
       <program name="matxin-xfer-lex"> 
         <file name="spa-eus.bilingual.bin"/>
-        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
         <file name="spa-eus.chunk_type.dat"/> <!-- matxin-spa-eus.chunk_type.dat -->
         <file name="spa-eus.lexical_selection.dat"/> <!-- matxin-spa-eus.lexical_selection.dat -->
+        <file name="eus.semantic.dat"/> <!-- matxin-eus.semantic.dat -->
       </program>
       <program name="matxin-xfer-intra"> 
         <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->

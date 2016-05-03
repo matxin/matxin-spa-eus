@@ -25,7 +25,7 @@ $(PREFIX1).bilingual.bin: $(BASENAME).bilingual_mur.xml
 $(PREFIX1).changes.bin: $(BASENAME).changes_morph.xml
 	lt-comp lr $< $@
 
-$(PREFIX1).cfg: $(BASENAME).$(PREFIX1).cfg
+$(PREFIX1).cfg: $(AP_SRC1)/matxin-$(LANG1).$(LANG1).cfg
 	cat $<  > $@
 
 ###############################################################################

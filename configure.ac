@@ -282,7 +282,6 @@ AP_MKINCLUDE
 #
 AC_CONFIG_FILES([
                  Makefile
-		 matxin-spa-eus.spa-eus.cfg
                  ])
 AC_OUTPUT
 

@@ -55,13 +55,13 @@
       <program name="matxin-xfer-intra"> 
         <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
       </program>
-      <program name="matxin-xfer-inter --inter 1"> 
+      <program name="matxin-xfer-inter"> 
         <file name="spa-eus.interchunk_move1.dat"/> <!--matxin-spa-eus.interchunk_move1.dat-->
       </program>
     </pipeline>
   </mode>
 
-  <mode name="spa-eus-xfer-prep" install="no">
+  <mode name="spa-eus-xfer-adpos" install="no">
     <pipeline>
       <program name="matxin-analyser -f">
         <file name="spa-eus.cfg"/>
@@ -75,10 +75,10 @@
       <program name="matxin-xfer-intra"> 
         <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
       </program>
-      <program name="matxin-xfer-inter --inter 1"> 
+      <program name="matxin-xfer-inter"> 
         <file name="spa-eus.interchunk_move1.dat"/> <!--matxin-spa-eus.interchunk_move1.dat-->
       </program>
-      <program name="matxin-xfer-prep"> 
+      <program name="matxin-xfer-adpos"> 
         <file name="spa-eus.prep.dat"/> 
         <file name="eus.verb_subcat.dat"/> 
         <file name="eus.verb_noun_subcat.dat"/> 
@@ -100,15 +100,15 @@
       <program name="matxin-xfer-intra"> 
         <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
       </program>
-      <program name="matxin-xfer-inter --inter 1"> 
+      <program name="matxin-xfer-inter"> 
         <file name="spa-eus.interchunk_move1.dat"/> <!--matxin-spa-eus.interchunk_move1.dat-->
       </program>
-      <program name="matxin-xfer-prep"> 
+      <program name="matxin-xfer-adpos"> 
         <file name="spa-eus.prep.dat"/> 
         <file name="eus.verb_subcat.dat"/> 
         <file name="eus.verb_noun_subcat.dat"/> 
       </program>
-      <program name="matxin-xfer-inter --inter 2"> 
+      <program name="matxin-xfer-inter"> 
         <file name="spa-eus.interchunk_move2.dat"/> <!--matxin-spa-eus.interchunk_move2.dat-->
       </program>
     </pipeline>
@@ -128,15 +128,15 @@
       <program name="matxin-xfer-intra"> 
         <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
       </program>
-      <program name="matxin-xfer-inter --inter 1"> 
+      <program name="matxin-xfer-inter"> 
         <file name="spa-eus.interchunk_move1.dat"/> <!--matxin-spa-eus.interchunk_move1.dat-->
       </program>
-      <program name="matxin-xfer-prep"> 
+      <program name="matxin-xfer-adpos"> 
         <file name="spa-eus.prep.dat"/> 
         <file name="eus.verb_subcat.dat"/> 
         <file name="eus.verb_noun_subcat.dat"/> 
       </program>
-      <program name="matxin-xfer-inter --inter 2"> 
+      <program name="matxin-xfer-inter"> 
         <file name="spa-eus.interchunk_move2.dat"/> <!--matxin-spa-eus.interchunk_move2.dat-->
       </program>
       <program name="matxin-xfer-verb"> 
@@ -159,21 +159,21 @@
       <program name="matxin-xfer-intra"> 
         <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
       </program>
-      <program name="matxin-xfer-inter --inter 1"> 
+      <program name="matxin-xfer-inter"> 
         <file name="spa-eus.interchunk_move1.dat"/> <!--matxin-spa-eus.interchunk_move1.dat-->
       </program>
-      <program name="matxin-xfer-prep"> 
+      <program name="matxin-xfer-adpos"> 
         <file name="spa-eus.prep.dat"/> 
         <file name="eus.verb_subcat.dat"/> 
         <file name="eus.verb_noun_subcat.dat"/> 
       </program>
-      <program name="matxin-xfer-inter --inter 2"> 
+      <program name="matxin-xfer-inter"> 
         <file name="spa-eus.interchunk_move2.dat"/> <!--matxin-spa-eus.interchunk_move2.dat-->
       </program>
       <program name="matxin-xfer-verb"> 
         <file name="spa-eus.verb_transfer.fst"/>
       </program>
-      <program name="matxin-xfer-inter --inter 3"> 
+      <program name="matxin-xfer-inter"> 
         <file name="spa-eus.interchunk_move3.dat"/> <!--matxin-spa-eus.interchunk_move3.dat-->
       </program>
     </pipeline>
@@ -193,21 +193,21 @@
       <program name="matxin-xfer-intra"> 
         <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
       </program>
-      <program name="matxin-xfer-inter --inter 1"> 
+      <program name="matxin-xfer-inter"> 
         <file name="spa-eus.interchunk_move1.dat"/> <!--matxin-spa-eus.interchunk_move1.dat-->
       </program>
-      <program name="matxin-xfer-prep"> 
+      <program name="matxin-xfer-adpos"> 
         <file name="spa-eus.prep.dat"/> 
         <file name="eus.verb_subcat.dat"/> 
         <file name="eus.verb_noun_subcat.dat"/> 
       </program>
-      <program name="matxin-xfer-inter --inter 2"> 
+      <program name="matxin-xfer-inter"> 
         <file name="spa-eus.interchunk_move2.dat"/> <!--matxin-spa-eus.interchunk_move2.dat-->
       </program>
       <program name="matxin-xfer-verb"> 
         <file name="spa-eus.verb_transfer.fst"/>
       </program>
-      <program name="matxin-xfer-inter --inter 3"> 
+      <program name="matxin-xfer-inter"> 
         <file name="spa-eus.interchunk_move3.dat"/> <!--matxin-spa-eus.interchunk_move3.dat-->
       </program>
       <program name="matxin-gen-inter"> 
@@ -230,21 +230,21 @@
       <program name="matxin-xfer-intra"> 
         <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
       </program>
-      <program name="matxin-xfer-inter --inter 1"> 
+      <program name="matxin-xfer-inter"> 
         <file name="spa-eus.interchunk_move1.dat"/> <!--matxin-spa-eus.interchunk_move1.dat-->
       </program>
-      <program name="matxin-xfer-prep"> 
+      <program name="matxin-xfer-adpos"> 
         <file name="spa-eus.prep.dat"/> 
         <file name="eus.verb_subcat.dat"/> 
         <file name="eus.verb_noun_subcat.dat"/> 
       </program>
-      <program name="matxin-xfer-inter --inter 2"> 
+      <program name="matxin-xfer-inter"> 
         <file name="spa-eus.interchunk_move2.dat"/> <!--matxin-spa-eus.interchunk_move2.dat-->
       </program>
       <program name="matxin-xfer-verb"> 
         <file name="spa-eus.verb_transfer.fst"/>
       </program>
-      <program name="matxin-xfer-inter --inter 3"> 
+      <program name="matxin-xfer-inter"> 
         <file name="spa-eus.interchunk_move3.dat"/> <!--matxin-spa-eus.interchunk_move3.dat-->
       </program>
       <program name="matxin-gen-inter"> 
@@ -271,21 +271,21 @@
       <program name="matxin-xfer-intra"> 
         <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
       </program>
-      <program name="matxin-xfer-inter --inter 1"> 
+      <program name="matxin-xfer-inter"> 
         <file name="spa-eus.interchunk_move1.dat"/> <!--matxin-spa-eus.interchunk_move1.dat-->
       </program>
-      <program name="matxin-xfer-prep"> 
+      <program name="matxin-xfer-adpos"> 
         <file name="spa-eus.prep.dat"/> 
         <file name="eus.verb_subcat.dat"/> 
         <file name="eus.verb_noun_subcat.dat"/> 
       </program>
-      <program name="matxin-xfer-inter --inter 2"> 
+      <program name="matxin-xfer-inter"> 
         <file name="spa-eus.interchunk_move2.dat"/> <!--matxin-spa-eus.interchunk_move2.dat-->
       </program>
       <program name="matxin-xfer-verb"> 
         <file name="spa-eus.verb_transfer.fst"/>
       </program>
-      <program name="matxin-xfer-inter --inter 3"> 
+      <program name="matxin-xfer-inter"> 
         <file name="spa-eus.interchunk_move3.dat"/> <!--matxin-spa-eus.interchunk_move3.dat-->
       </program>
       <program name="matxin-gen-inter"> 
@@ -315,21 +315,21 @@
       <program name="matxin-xfer-intra"> 
         <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
       </program>
-      <program name="matxin-xfer-inter --inter 1"> 
+      <program name="matxin-xfer-inter"> 
         <file name="spa-eus.interchunk_move1.dat"/> <!--matxin-spa-eus.interchunk_move1.dat-->
       </program>
-      <program name="matxin-xfer-prep"> 
+      <program name="matxin-xfer-adpos"> 
         <file name="spa-eus.prep.dat"/> 
         <file name="eus.verb_subcat.dat"/> 
         <file name="eus.verb_noun_subcat.dat"/> 
       </program>
-      <program name="matxin-xfer-inter --inter 2"> 
+      <program name="matxin-xfer-inter"> 
         <file name="spa-eus.interchunk_move2.dat"/> <!--matxin-spa-eus.interchunk_move2.dat-->
       </program>
       <program name="matxin-xfer-verb"> 
         <file name="spa-eus.verb_transfer.fst"/>
       </program>
-      <program name="matxin-xfer-inter --inter 3"> 
+      <program name="matxin-xfer-inter"> 
         <file name="spa-eus.interchunk_move3.dat"/> <!--matxin-spa-eus.interchunk_move3.dat-->
       </program>
       <program name="matxin-gen-inter"> 
@@ -365,21 +365,21 @@
       <program name="matxin-xfer-intra"> 
         <file name="spa-eus.intrachunk_move.dat"/> <!-- matxin-spa-eus.intrachunk_move.dat -->
       </program>
-      <program name="matxin-xfer-inter --inter 1"> 
+      <program name="matxin-xfer-inter"> 
         <file name="spa-eus.interchunk_move1.dat"/> <!--matxin-spa-eus.interchunk_move1.dat-->
       </program>
-      <program name="matxin-xfer-prep"> 
+      <program name="matxin-xfer-adpos"> 
         <file name="spa-eus.prep.dat"/> 
         <file name="eus.verb_subcat.dat"/> 
         <file name="eus.verb_noun_subcat.dat"/> 
       </program>
-      <program name="matxin-xfer-inter --inter 2"> 
+      <program name="matxin-xfer-inter"> 
         <file name="spa-eus.interchunk_move2.dat"/> <!--matxin-spa-eus.interchunk_move2.dat-->
       </program>
       <program name="matxin-xfer-verb"> 
         <file name="spa-eus.verb_transfer.fst"/>
       </program>
-      <program name="matxin-xfer-inter --inter 3"> 
+      <program name="matxin-xfer-inter"> 
         <file name="spa-eus.interchunk_move3.dat"/> <!--matxin-spa-eus.interchunk_move3.dat-->
       </program>
       <program name="matxin-gen-inter"> 

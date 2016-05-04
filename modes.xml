@@ -3,7 +3,7 @@
 
   <mode name="spa-eus-analyser" install="no">
     <pipeline>
-      <program name="matxin-analyser -f">
+      <program name="matxin-freeling -f">
         <file name="spa-eus.cfg"/>
       </program>
     </pipeline>
@@ -12,7 +12,7 @@
 
   <mode name="spa-eus-xfer-lex" install="no">
     <pipeline>
-      <program name="matxin-analyser -f">
+      <program name="matxin-freeling -f">
         <file name="spa-eus.cfg"/>
       </program>
       <program name="matxin-xfer-lex"> 
@@ -26,7 +26,7 @@
 
   <mode name="spa-eus-xfer-intra" install="no">
     <pipeline>
-      <program name="matxin-analyser -f">
+      <program name="matxin-freeling -f">
         <file name="spa-eus.cfg"/>
       </program>
       <program name="matxin-xfer-lex"> 
@@ -43,7 +43,7 @@
 
   <mode name="spa-eus-xfer-inter1" install="no">
     <pipeline>
-      <program name="matxin-analyser -f">
+      <program name="matxin-freeling -f">
         <file name="spa-eus.cfg"/>
       </program>
       <program name="matxin-xfer-lex"> 
@@ -63,7 +63,7 @@
 
   <mode name="spa-eus-xfer-adpos" install="no">
     <pipeline>
-      <program name="matxin-analyser -f">
+      <program name="matxin-freeling -f">
         <file name="spa-eus.cfg"/>
       </program>
       <program name="matxin-xfer-lex"> 
@@ -88,7 +88,7 @@
 
   <mode name="spa-eus-xfer-inter2" install="no">
     <pipeline>
-      <program name="matxin-analyser -f">
+      <program name="matxin-freeling -f">
         <file name="spa-eus.cfg"/>
       </program>
       <program name="matxin-xfer-lex"> 
@@ -116,7 +116,7 @@
 
   <mode name="spa-eus-xfer-verb" install="no">
     <pipeline>
-      <program name="matxin-analyser -f">
+      <program name="matxin-freeling -f">
         <file name="spa-eus.cfg"/>
       </program>
       <program name="matxin-xfer-lex"> 
@@ -147,7 +147,7 @@
 
   <mode name="spa-eus-xfer-inter3" install="no">
     <pipeline>
-      <program name="matxin-analyser -f">
+      <program name="matxin-freeling -f">
         <file name="spa-eus.cfg"/>
       </program>
       <program name="matxin-xfer-lex"> 
@@ -181,7 +181,7 @@
 
   <mode name="spa-eus-gen-inter" install="no">
     <pipeline>
-      <program name="matxin-analyser -f">
+      <program name="matxin-freeling -f">
         <file name="spa-eus.cfg"/>
       </program>
       <program name="matxin-xfer-lex"> 
@@ -218,7 +218,7 @@
 
   <mode name="spa-eus-gen-intra" install="no">
     <pipeline>
-      <program name="matxin-analyser -f">
+      <program name="matxin-freeling -f">
         <file name="spa-eus.cfg"/>
       </program>
       <program name="matxin-xfer-lex"> 
@@ -259,7 +259,7 @@
 
   <mode name="spa-eus-gen-move" install="no">
     <pipeline>
-      <program name="matxin-analyser -f">
+      <program name="matxin-freeling -f">
         <file name="spa-eus.cfg"/>
       </program>
       <program name="matxin-xfer-lex"> 
@@ -303,7 +303,7 @@
 
   <mode name="spa-eus-gen-morf" install="no">
     <pipeline>
-      <program name="matxin-analyser -f">
+      <program name="matxin-freeling -f">
         <file name="spa-eus.cfg"/>
       </program>
       <program name="matxin-xfer-lex"> 
@@ -344,16 +344,16 @@
       </program>
       <program name="matxin-gen-morf"> 
         <file name="spa-eus.changes_morph.bin"/>
-        <file name="eus.morph_gen.bin"/>
-        <file name="eus.measures_gen.bin"/>
-        <file name="eus.morph_nolex.bin"/>
+        <file name="spa-eus.morph_gen.bin"/>
+        <file name="spa-eus.measures_gen.bin"/>
+        <file name="spa-eus.morph_nolex.bin"/>
       </program>
     </pipeline>
   </mode>
 
   <mode name="spa-eus" install="yes">
     <pipeline>
-      <program name="matxin-analyser -f">
+      <program name="matxin-freeling -f">
         <file name="spa-eus.cfg"/>
       </program>
       <program name="matxin-xfer-lex"> 
@@ -394,10 +394,10 @@
       </program>
       <program name="matxin-gen-morf"> 
         <file name="spa-eus.changes_morph.bin"/>
-        <file name="eus.morph_preproc.dat"/>
-        <file name="eus.morph_gen.bin"/>
-        <file name="eus.measures_gen.bin"/>
-        <file name="eus.morph_nolex.bin"/>
+        <file name="spa-eus.morph_preproc.dat"/>
+        <file name="spa-eus.morph_gen.bin"/>
+        <file name="spa-eus.measures_gen.bin"/>
+        <file name="spa-eus.morph_nolex.bin"/>
       </program>
     </pipeline>
   </mode>

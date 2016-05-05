@@ -20,8 +20,12 @@ TARGETS_COMMON=$(PREFIX1).verb_transfer.fst \
 	       $(PREFIX1).intrachunk_move.dat \
 	       $(PREFIX1).lexical_selection.dat \
 	       $(PREFIX1).semantic.dat \
+	       $(PREFIX1).verb_noun_subcat.dat \
+	       $(PREFIX1).verb_subcat.dat \
 	       $(PREFIX1).prep.dat \
 	       $(PREFIX1).morph_preproc.dat \
+	       $(PREFIX1).intrachunk_order.dat \
+	       $(PREFIX1).generation_move.dat \
 	       $(PREFIX1).morph_gen.bin \
 	       $(PREFIX1).measures_gen.bin \
 	       $(PREFIX1).morph_nolex.bin 
@@ -75,7 +79,13 @@ $(PREFIX1).prep.dat: $(BASENAME).prep.dat
 #
 #
 
-$(PREFIX1).morph_preproc.dat: $(AP_SRC2)/matxin-$(LANG2).morph_preproc.dat
+$(PREFIX1).generation_move.dat: $(AP_SRC2)/$(LANG2).generation_move.dat
+	cp $< $@
+
+$(PREFIX1).intrachunk_order.dat: $(AP_SRC2)/$(LANG2).intrachunk_order.dat
+	cp $< $@
+
+$(PREFIX1).morph_preproc.dat: $(AP_SRC2)/$(LANG2).morph_preproc.dat
 	cp $< $@
 
 $(PREFIX1).morph_gen.bin: $(AP_SRC2)/$(LANG2).morph_gen.bin
@@ -90,6 +100,11 @@ $(PREFIX1).morph_nolex.bin: $(AP_SRC2)/$(LANG2).morph_nolex.bin
 $(PREFIX1).semantic.dat: $(AP_SRC2)/$(LANG2).semantic.dat
 	cp $< $@
 
+$(PREFIX1).verb_subcat.dat: $(AP_SRC2)/$(LANG2).verb_subcat.dat
+	cp $< $@
+
+$(PREFIX1).verb_noun_subcat.dat: $(AP_SRC2)/$(LANG2).verb_noun_subcat.dat
+	cp $< $@
 
 ###############################################################################
 

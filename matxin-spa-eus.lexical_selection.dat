@@ -11,7 +11,7 @@
 #     + : default value for lemmaSRC
 
 
-'posiciÃ³n'	'postu'	parent.lem='_jaitsi_' || parent.lem='_igo_'	-
+'posición'	'postu'	parent.lem='_jaitsi_' || parent.lem='_igo_'	-
 'final'		'bukaera'	my.smi=~'NCM'	-
 'final'		'final'	my.smi=~'NCF'	+
 'capital'	'kapital'	my.smi=~'NCM'	+

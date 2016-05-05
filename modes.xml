@@ -344,6 +344,7 @@
       </program>
       <program name="matxin-gen-morf"> 
         <file name="spa-eus.changes_morph.bin"/>
+        <file name="spa-eus.morph_preproc.dat"/>
         <file name="spa-eus.morph_gen.bin"/>
         <file name="spa-eus.measures_gen.bin"/>
         <file name="spa-eus.morph_nolex.bin"/>

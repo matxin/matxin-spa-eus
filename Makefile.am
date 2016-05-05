@@ -19,6 +19,7 @@ TARGETS_COMMON=$(PREFIX1).verb_transfer.fst \
 	       $(PREFIX1).interchunk_order.dat \
 	       $(PREFIX1).intrachunk_move.dat \
 	       $(PREFIX1).lexical_selection.dat \
+	       $(PREFIX1).semantic.dat \
 	       $(PREFIX1).prep.dat \
 	       $(PREFIX1).morph_preproc.dat \
 	       $(PREFIX1).morph_gen.bin \
@@ -84,6 +85,9 @@ $(PREFIX1).measures_gen.bin: $(AP_SRC2)/$(LANG2).measures_gen.bin
 	cp $< $@
 
 $(PREFIX1).morph_nolex.bin: $(AP_SRC2)/$(LANG2).morph_nolex.bin
+	cp $< $@
+
+$(PREFIX1).semantic.dat: $(AP_SRC2)/$(LANG2).semantic.dat
 	cp $< $@
 
 

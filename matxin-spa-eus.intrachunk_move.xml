@@ -18,7 +18,17 @@
       </copy>
     </template> 
   </def-rule>
-
+  
+  
+  <!-- spost!=''/ref /spostref concat -->
+ <def-rule comment="">
+    <template match="CHUNK[.//NODE[@spost != '' and @ref]]">
+      <copy>
+        <attribute name="spostref"><value-of select=".//NODE[@spost != '' and @ref]/@ref"/></attribute>
+        <apply-templates select="@* | *"/>
+      </copy>
+    </template> 
+  </def-rule>
 
 
 </transfer>

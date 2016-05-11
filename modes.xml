@@ -251,8 +251,8 @@
         <file name="spa-eus.interchunk_order.dat"/>
       </program>
       <program name="matxin-gen-intra"> 
-        <file name="spa-eus.changes_sint.dat"/>
         <file name="spa-eus.intrachunk_order.dat"/>
+        <file name="spa-eus.changes_sint.dat"/>
       </program>
     </pipeline>
   </mode>

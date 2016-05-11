@@ -1,0 +1,22 @@
+<transfer>
+
+  <def-rule comment="per!=''/per || type!='adi-kat'/per	|| no-overwrite">
+    <template match="CHUNK[@type != 'adi-kat' and not(@per) and ./NODE/@per != '']">
+      <copy>
+        <attribute name="per"><value-of select="NODE/@per"/></attribute>
+        <apply-templates select="@* | *"/>
+      </copy>
+    </template> 
+  </def-rule>
+
+  <def-rule comment="">
+    <template match="CHUNK[@type != 'adi-kat' and .//NODE[@num != '' and @def]]">
+      <copy>
+        <attribute name="num"><value-of select=".//NODE[@num != '' and @def]/@num"/></attribute>
+        <apply-templates select="@* | *"/>
+      </copy>
+    </template> 
+  </def-rule>
+
+
+</transfer>

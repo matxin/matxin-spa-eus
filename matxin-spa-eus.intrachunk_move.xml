@@ -271,7 +271,7 @@
 
   <!-- pos!=''/pos	/headpos	no-overwrite -->
   <def-rule id="ST_IntrachunkMove: pos->headpos" comment="">
-    <template match="CHUNK[not(@headpos) and ./NODE/@pos!='']">
+    <template match="CHUNK[not(@headpos) and .//NODE/@pos!='']">
       <copy>
         <attribute name="headpos"><value-of select="NODE/@pos"/></attribute>
         <apply-templates select="@* | *"/>
@@ -281,7 +281,7 @@
 
   <!-- lem!=''/lem	/headlem	no-overwrite -->
   <def-rule id="ST_IntrachunkMove: lem->headlem" comment="">
-    <template match="CHUNK[not(@headlem) and ./NODE/@lem!='']">
+    <template match="CHUNK[not(@headlem) and .//NODE/@lem!='']">
       <copy>
         <attribute name="headlem"><value-of select="NODE/@lem"/></attribute>
         <apply-templates select="@* | *"/>
@@ -291,7 +291,7 @@
 
   <!-- sem!=''/sem	/headsem	no-overwrite -->
   <def-rule id="ST_IntrachunkMove: sem->headsem" comment="">
-    <template match="CHUNK[not(@headsem) and ./NODE/@sem!='']">
+    <template match="CHUNK[not(@headsem) and .//NODE/@sem!='']">
       <copy>
         <attribute name="headsem"><value-of select="NODE/@sem"/></attribute>
         <apply-templates select="@* | *"/>

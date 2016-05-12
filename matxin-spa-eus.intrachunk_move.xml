@@ -1,7 +1,7 @@
 <transfer>
 
   <!-- def!=''/def	type!='adi-kat'/def	overwrite -->
-  <def-rule id=”ST_IntrachunkMove: def->def” comment="">
+  <def-rule id="ST_IntrachunkMove: def->def" comment="">
     <template match="CHUNK[@type!='adi-kat' and .//NODE/@def!='']">
       <copy>
         <attribute name="def"><value-of select="NODE/@def"/></attribute>
@@ -11,7 +11,7 @@
   </def-rule>
 
   <!-- num!=''/num	type!='adi-kat'/num	no-overwrite -->
-  <def-rule id=”ST_IntrachunkMove: (!='adi-kat') num->num” comment="">
+  <def-rule id="ST_IntrachunkMove: (!='adi-kat') num->num" comment="">
     <template match="CHUNK[@type!='adi-kat' and not(@num) and .//NODE/@num!='']">
       <copy>
         <attribute name="num"><value-of select="NODE/@num"/></attribute>
@@ -21,7 +21,7 @@
   </def-rule>
 
   <!-- per!=''/per	type!='adi-kat'/per	no-overwrite -->
-  <def-rule id=”ST_IntrachunkMove: (!='adi-kat') per->per” comment="">
+  <def-rule id="ST_IntrachunkMove: (!='adi-kat') per->per" comment="">
     <template match="CHUNK[@type!='adi-kat' and not(@per) and .//NODE/@per!='']">
       <copy>
         <attribute name="per"><value-of select="NODE/@per"/></attribute>
@@ -31,7 +31,7 @@
   </def-rule>
 
   <!-- mi='[MG]'/mi	type!='adi-kat'/def	overwrite -->
-  <def-rule id=”ST_IntrachunkMove: (!='adi-kat'&&'[MG]') mi->def” comment="">
+  <def-rule id="ST_IntrachunkMove: (!='adi-kat' and '[MG]') mi->def" comment="">
     <template match="CHUNK[@type!='adi-kat' and .//NODE/@mi='[MG]']">
       <copy>
         <attribute name="def">[MG]</attribute>
@@ -43,7 +43,7 @@
   <!-- -->
 
   <!-- cas!=''/cas	/cas	concat -->
-  <def-rule id=”ST_IntrachunkMove: cas->.cas” comment="">
+  <def-rule id="ST_IntrachunkMove: cas->.cas" comment="">
     <template match="CHUNK[.//NODE/@cas!='']">
       <copy>
         <attribute name="cas"><value-of select="concat(@cas,NODE/@cas)"/></attribute>
@@ -53,7 +53,7 @@
   </def-rule>
 
   <!-- cas!=''/ref	/casref	concat -->
-  <def-rule id=”ST_IntrachunkMove: ref->.casref” comment="">
+  <def-rule id="ST_IntrachunkMove: ref->.casref" comment="">
     <template match="CHUNK[.//NODE/@cas!='']">
       <copy>
         <attribute name="casref"><value-of select="concat(@casref,NODE/@ref)"/></attribute>
@@ -63,7 +63,7 @@
   </def-rule>
 
   <!-- cas!=''/alloc	/casalloc	concat -->
-  <def-rule id=”ST_IntrachunkMove: alloc->.casalloc” comment="">
+  <def-rule id="ST_IntrachunkMove: alloc->.casalloc" comment="">
     <template match="CHUNK[.//NODE/@cas!='']">
       <copy>
         <attribute name="casalloc"><value-of select="concat(@casalloc,NODE/@alloc)"/></attribute>
@@ -75,7 +75,7 @@
   <!-- -->
 
   <!-- vpost!=''/vpost	/vpost	overwrite -->
-  <def-rule id=”ST_IntrachunkMove: vpost->vpost” comment="">
+  <def-rule id="ST_IntrachunkMove: vpost->vpost" comment="">
     <template match="CHUNK[.//NODE/@vpost!='']">
       <copy>
         <attribute name="vpost"><value-of select="NODE/@vpost"/></attribute>
@@ -85,7 +85,7 @@
   </def-rule>
 
   <!-- vpost!=''/ref	/vpostref	overwrite -->
-  <def-rule id=”ST_IntrachunkMove: ref->vpostref” comment="">
+  <def-rule id="ST_IntrachunkMove: ref->vpostref" comment="">
     <template match="CHUNK[.//NODE/@vpost!='']">
       <copy>
         <attribute name="vpostref"><value-of select="NODE/@ref"/></attribute>
@@ -95,7 +95,7 @@
   </def-rule>
 
   <!-- vpost!=''/alloc	/vpostalloc	overwrite -->
-  <def-rule id=”ST_IntrachunkMove: alloc->vpostalloc” comment="">
+  <def-rule id="ST_IntrachunkMove: alloc->vpostalloc" comment="">
     <template match="CHUNK[.//NODE/@vpost!='']">
       <copy>
         <attribute name="vpostalloc"><value-of select="NODE/@alloc"/></attribute>
@@ -110,7 +110,7 @@
   <!-- %Gehitu: -->
   <!-- %vpost!=''/ref	/vpostref	overwrite -->
   <!-- %vpost!=''/alloc	/vpostalloc	overwrite -->
-  <def-rule id=”ST_IntrachunkMove: ('+n[ERL][MEN][MOS]'&&ADB) +n[ERL][MEN][MOS]->vpost” comment="">
+  <def-rule id="ST_IntrachunkMove: ('+n[ERL][MEN][MOS]' and ADB) +n[ERL][MEN][MOS]->vpost" comment="">
     <template match="CHUNK[@type='mend-p' and .//NODE/@pos='[ADB][ADOGAL]']">
       <copy>
         <attribute name="vpost">+n[ERL][MEN][MOS]</attribute>
@@ -122,7 +122,7 @@
   <!-- -->
 
   <!-- spost!=''/spost	/spost	concat -->
-  <def-rule id=”ST_IntrachunkMove: spost->.spost” comment="">
+  <def-rule id="ST_IntrachunkMove: spost->.spost" comment="">
     <template match="CHUNK[.//NODE/@spost!='']">
       <copy>
         <attribute name="spost"><value-of select="concat(spost,NODE/@spost)"/></attribute>
@@ -132,7 +132,7 @@
   </def-rule>
 
   <!-- spost!=''/ref	/spostref	concat -->
-  <def-rule id=”ST_IntrachunkMove: ref->.spostref” comment="">
+  <def-rule id="ST_IntrachunkMove: ref->.spostref" comment="">
     <template match="CHUNK[.//NODE/@spost!='']">
       <copy>
         <attribute name="spostref"><value-of select="concat(spostref,NODE/@ref)"/></attribute>
@@ -142,7 +142,7 @@
   </def-rule>
 
   <!-- spost!=''/alloc	/spostalloc	concat -->
-  <def-rule id=”ST_IntrachunkMove: alloc->.spostalloc” comment="">
+  <def-rule id="ST_IntrachunkMove: alloc->.spostalloc" comment="">
     <template match="CHUNK[.//NODE/@spost!='']">
       <copy>
         <attribute name="spostalloc"><value-of select="concat(spostalloc,NODE/@alloc)"/></attribute>
@@ -154,7 +154,7 @@
   <!-- -->
 
   <!-- npost!=''/npost	/npost	concat -->
-  <def-rule id=”ST_IntrachunkMove: npost->.npost” comment="">
+  <def-rule id="ST_IntrachunkMove: npost->.npost" comment="">
     <template match="CHUNK[.//NODE/@npost!='']">
       <copy>
         <attribute name="npost"><value-of select="concat(npost,NODE/@npost)"/></attribute>
@@ -164,7 +164,7 @@
   </def-rule>
 
   <!-- npost!=''/ref	/npostref	concat -->
-  <def-rule id=”ST_IntrachunkMove: ref->.npostref” comment="">
+  <def-rule id="ST_IntrachunkMove: ref->.npostref" comment="">
     <template match="CHUNK[.//NODE/@npost!='']">
       <copy>
         <attribute name="npostref"><value-of select="concat(npostref,NODE/@ref)"/></attribute>
@@ -174,7 +174,7 @@
   </def-rule>
 
   <!-- npost!=''/alloc	/npostalloc	concat -->
-  <def-rule id=”ST_IntrachunkMove: alloc->.npostalloc” comment="">
+  <def-rule id="ST_IntrachunkMove: alloc->.npostalloc" comment="">
     <template match="CHUNK[.//NODE/@npost!='']">
       <copy>
         <attribute name="npostalloc"><value-of select="concat(npostalloc,NODE/@alloc)"/></attribute>
@@ -186,7 +186,7 @@
   <!-- -->
 
   <!-- prep!=''/prep	/prep	concat -->
-  <def-rule id=”ST_IntrachunkMove: prep->.prep” comment="">
+  <def-rule id="ST_IntrachunkMove: prep->.prep" comment="">
     <template match="CHUNK[.//NODE/@prep!='']">
       <copy>
         <attribute name="prep"><value-of select="concat(prep,NODE/@prep)"/></attribute>
@@ -196,7 +196,7 @@
   </def-rule>
 
   <!-- prep!=''/ref	/casref	concat -->
-  <def-rule id=”ST_IntrachunkMove: ref->.casref” comment="">
+  <def-rule id="ST_IntrachunkMove: ref->.casref" comment="">
     <template match="CHUNK[.//NODE/@prep!='']">
       <copy>
         <attribute name="casref"><value-of select="concat(casref,NODE/@ref)"/></attribute>
@@ -206,7 +206,7 @@
   </def-rule>
 
   <!-- prep!=''/alloc	/casalloc	concat -->
-  <def-rule id=”ST_IntrachunkMove: alloc->.casalloc” comment="">
+  <def-rule id="ST_IntrachunkMove: alloc->.casalloc" comment="">
     <template match="CHUNK[.//NODE/@prep!='']">
       <copy>
         <attribute name="casalloc"><value-of select="concat(casalloc,NODE/@alloc)"/></attribute>
@@ -217,8 +217,8 @@
 
   <!-- -->
 
-  <!-- lem='' && prep='' && sub='' && cas=''/ref	/casref	concat -->
-  <def-rule id=”ST_IntrachunkMove: (lem=prep=sub=cas='')ref->.casref” comment="">
+  <!-- lem='' and prep='' and sub='' and cas=''/ref	/casref	concat -->
+  <def-rule id="ST_IntrachunkMove: (lem=prep=sub=cas='')ref->.casref" comment="">
     <template match="CHUNK[.//NODE[@lem='' and @prep='' and @sub='' and @cas='']]">
       <copy>
         <attribute name="casref"><value-of select="concat(casref,NODE[@lem='' and @prep='' and @sub='' and @cas='']/@ref)"/></attribute>
@@ -227,8 +227,8 @@
     </template> 
   </def-rule>
 
-  <!-- lem='' && prep='' && sub='' && cas=''/alloc	/casalloc	concat -->
-  <def-rule id=”ST_IntrachunkMove: (lem=prep=sub=cas='')alloc->.casalloc” comment="">
+  <!-- lem='' and prep='' and sub='' and cas=''/alloc	/casalloc	concat -->
+  <def-rule id="ST_IntrachunkMove: (lem=prep=sub=cas='')alloc->.casalloc" comment="">
     <template match="CHUNK[.//NODE[@lem='' and @prep='' and @sub='' and @cas='']]">
       <copy>
         <attribute name="casref"><value-of select="concat(casref,NODE[@lem='' and @prep='' and @sub='' and @cas='']/@ref)"/></attribute>
@@ -240,7 +240,7 @@
   <!-- -->
 
   <!-- pos='[Z]'/'[MG]'	/def	overwrite -->
-  <def-rule id=”ST_IntrachunkMove: ([Z]) '[MG]'->def” comment="">
+  <def-rule id="ST_IntrachunkMove: ([Z]) '[MG]'->def" comment="">
     <template match="CHUNK[.//NODE/@pos='[Z]']">
       <copy>
         <attribute name="def">[MG]</attribute>
@@ -250,7 +250,7 @@
   </def-rule>
 
   <!-- pos='[Zu]'/'[MG]'	/def	overwrite -->
-  <def-rule id=”ST_IntrachunkMove: ([Zu]) '[MG]'->def” comment="">
+  <def-rule id="ST_IntrachunkMove: ([Zu]) '[MG]'->def" comment="">
     <template match="CHUNK[.//NODE/@pos='[Zu]']">
       <copy>
         <attribute name="def">[MG]</attribute>
@@ -260,7 +260,7 @@
   </def-rule>
 
   <!-- pos='[Zp]'/'[NUMS]'	/def	overwrite -->
-  <def-rule id=”ST_IntrachunkMove: ([Zp]) '[NUMS]'->def” comment="">
+  <def-rule id="ST_IntrachunkMove: ([Zp]) '[NUMS]'->def" comment="">
     <template match="CHUNK[.//NODE/@pos='[Zp]']">
       <copy>
         <attribute name="def">[NUMS]</attribute>
@@ -269,18 +269,8 @@
     </template> 
   </def-rule>
 
-  <!-- pos='[Z]' && lem>'1800' && lem<'2050'/'[NUMS]'	headpos=''/mi	overwrite -->
-  <def-rule id=”ST_IntrachunkMove: ([Z]) '[NUMS]'->mi” comment="">
-    <template match="CHUNK[@headpos='' and .//NODE[@pos='[Z]' and @lem>'1800' and @lem<'2050']]">
-      <copy>
-        <attribute name="mi">[NUMS]</attribute>
-        <apply-templates select="@* | *"/>
-      </copy>
-    </template> 
-  </def-rule>
-
   <!-- pos!=''/pos	/headpos	no-overwrite -->
-  <def-rule id=”ST_IntrachunkMove: pos->headpos” comment="">
+  <def-rule id="ST_IntrachunkMove: pos->headpos" comment="">
     <template match="CHUNK[not(@headpos) and ./NODE/@pos!='']">
       <copy>
         <attribute name="headpos"><value-of select="NODE/@pos"/></attribute>
@@ -290,7 +280,7 @@
   </def-rule>
 
   <!-- lem!=''/lem	/headlem	no-overwrite -->
-  <def-rule id=”ST_IntrachunkMove: lem->headlem” comment="">
+  <def-rule id="ST_IntrachunkMove: lem->headlem" comment="">
     <template match="CHUNK[not(@headpos) and ./NODE/@pos!='']">
       <copy>
         <attribute name="headlem"><value-of select="NODE/@lem"/></attribute>
@@ -300,7 +290,7 @@
   </def-rule>
 
   <!-- sem!=''/sem	/headsem	no-overwrite -->
-  <def-rule id=”ST_IntrachunkMove: sem->headsem” comment="">
+  <def-rule id="ST_IntrachunkMove: sem->headsem" comment="">
     <template match="CHUNK[not(@headsem) and ./NODE/@sem!='']">
       <copy>
         <attribute name="headsem"><value-of select="NODE/@sem"/></attribute>
@@ -310,7 +300,7 @@
   </def-rule>
 
   <!-- pos='[Z]'/pos	/leafpos	overwrite -->
-  <def-rule id=”ST_IntrachunkMove: ([Z]) pos->leafpos” comment="">
+  <def-rule id="ST_IntrachunkMove: ([Z]) pos->leafpos" comment="">
     <template match="CHUNK[.//NODE[@pos='[Z]']]">
       <copy>
         <attribute name="leafpos"><value-of select="NODE[@pos='[Z]']/@pos"/></attribute>
@@ -322,7 +312,7 @@
   <!-- -->
 
   <!-- /'true'	si='subj'/subject	overwrite -->
-  <def-rule id=”ST_IntrachunkMove: (subj) true->subject” comment="">
+  <def-rule id="ST_IntrachunkMove: (subj) true->subject" comment="">
     <template match="CHUNK[@si='subj']">
       <copy>
         <attribute name="subject">true</attribute>
@@ -334,7 +324,7 @@
   <!-- -->
 
   <!-- smi='Fit'/'p-int'	/type	overwrite -->
-  <def-rule id=”ST_IntrachunkMove: (Fit) 'p-int'->type” comment="">
+  <def-rule id="ST_IntrachunkMove: (Fit) 'p-int'->type" comment="">
     <template match="CHUNK[.//NODE[@smi='Fit']]">
       <copy>
         <attribute name="type">p-int</attribute>
@@ -344,7 +334,7 @@
   </def-rule>
 
   <!-- smi='Fia'/'p-int'	/type	overwrite -->
-  <def-rule id=”ST_IntrachunkMove: (Fia) 'p-int'->type” comment="">
+  <def-rule id="ST_IntrachunkMove: (Fia) 'p-int'->type" comment="">
     <template match="CHUNK[.//NODE[@smi='Fia']]">
       <copy>
         <attribute name="type">p-int</attribute>
@@ -356,7 +346,7 @@
   <!-- -->
 
   <!-- pos='[ADB][ADOGAL]'/'wh'	/qtype	overwrite -->
-  <def-rule id=”ST_IntrachunkMove: ([ADB][ADOGAL]) 'wh'->qtype” comment="">
+  <def-rule id="ST_IntrachunkMove: ([ADB][ADOGAL]) 'wh'->qtype" comment="">
     <template match="CHUNK[.//NODE[@pos='[ADB][ADOGAL]']]">
       <copy>
         <attribute name="qtype">wh</attribute>
@@ -366,7 +356,7 @@
   </def-rule>
 
   <!-- pos='[ADB][ALGGAL]'/'wh'	/qtype	overwrite -->
-  <def-rule id=”ST_IntrachunkMove: ([ADB][ALGGAL]) 'wh'->qtype” comment="">
+  <def-rule id="ST_IntrachunkMove: ([ADB][ALGGAL]) 'wh'->qtype" comment="">
     <template match="CHUNK[.//NODE[@pos='[ADB][ALGGAL]']]">
       <copy>
         <attribute name="qtype">wh</attribute>
@@ -376,7 +366,7 @@
   </def-rule>
 
   <!-- pos='[IOR][IZGGAL]'/'wh'	/qtype	overwrite -->
-  <def-rule id=”ST_IntrachunkMove: ([IOR][IZGGAL]) 'wh'->qtype” comment="">
+  <def-rule id="ST_IntrachunkMove: ([IOR][IZGGAL]) 'wh'->qtype" comment="">
     <template match="CHUNK[.//NODE[@pos='[IOR][IZGGAL]']]">
       <copy>
         <attribute name="qtype">wh</attribute>
@@ -386,7 +376,7 @@
   </def-rule>
 
   <!-- pos='[DET][NOLGAL]'/'wh'	/qtype	overwrite -->
-  <def-rule id=”ST_IntrachunkMove: ([DET][NOLGAL]) 'wh'->qtype” comment="">
+  <def-rule id="ST_IntrachunkMove: ([DET][NOLGAL]) 'wh'->qtype" comment="">
     <template match="CHUNK[.//NODE[@pos='[DET][NOLGAL]']]">
       <copy>
         <attribute name="qtype">wh</attribute>

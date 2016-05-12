@@ -281,7 +281,7 @@
 
   <!-- lem!=''/lem	/headlem	no-overwrite -->
   <def-rule id="ST_IntrachunkMove: lem->headlem" comment="">
-    <template match="CHUNK[not(@headpos) and ./NODE/@pos!='']">
+    <template match="CHUNK[not(@headlem) and ./NODE/@lem!='']">
       <copy>
         <attribute name="headlem"><value-of select="NODE/@lem"/></attribute>
         <apply-templates select="@* | *"/>

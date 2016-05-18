@@ -231,7 +231,7 @@
   <def-rule id="ST_IntrachunkMove: (lem=prep=sub=cas='')alloc->.casalloc" comment="">
     <template match="//CHUNK[.//NODE[@lem='' and @prep='' and @sub='' and @cas='']]">
       <copy>
-        <attribute name="casref"><value-of select="concat(@casref, ',', NODE[@lem='' and @prep='' and @sub='' and @cas='']/@ref)"/></attribute>
+        <attribute name="casalloc"><value-of select="concat(@casalloc, ',', NODE[@lem='' and @prep='' and @sub='' and @cas='']/@alloc)"/></attribute>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 

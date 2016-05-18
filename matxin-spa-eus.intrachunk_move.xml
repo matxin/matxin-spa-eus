@@ -2,9 +2,11 @@
 
   <!-- def!=''/def	type!='adi-kat'/def	overwrite -->
   <def-rule id="ST_IntrachunkMove: def->def" comment="">
-    <template match="//CHUNK[@type!='adi-kat' and .//NODE/@def!='']">
+    <template match="//CHUNK[@type!='adi-kat' and //NODE[count(ancestor::CHUNK) = 1 and @def != '']]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@def][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="def"><value-of select=".//NODE[@def!='']/@def"/></attribute>
+        <if test="$target">
+          <attribute name="def"><value-of select="//NODE[@def!='' and count(ancestor::CHUNK) = 1]/@def"/></attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 

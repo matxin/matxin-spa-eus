@@ -2,11 +2,11 @@
 
   <!-- def!=''/def	type!='adi-kat'/def	overwrite -->
   <def-rule id="ST_IntrachunkMove: def->def" comment="">
-    <template match="//CHUNK[@type!='adi-kat' and //NODE[count(ancestor::CHUNK) = 1 and @def != '']]">
+    <template match="//CHUNK[@type!='adi-kat' and //NODE[@def!='' and count(ancestor::CHUNK)=1]]">
       <variable name="c" select="." /><variable name="target" select="(.//NODE[@def][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
         <if test="$target">
-          <attribute name="def"><value-of select="//NODE[@def!='' and count(ancestor::CHUNK) = 1]/@def"/></attribute></if>
+          <attribute name="def"><value-of select="//NODE[@def!='' and count(ancestor::CHUNK)=1]/@def"/></attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -14,9 +14,11 @@
 
   <!-- num!=''/num	type!='adi-kat'/num	no-overwrite -->
   <def-rule id="ST_IntrachunkMove: (!='adi-kat') num->num" comment="">
-    <template match="//CHUNK[@type!='adi-kat' and not(@num) and .//NODE/@num!='']">
+    <template match="//CHUNK[@type!='adi-kat' and not(@num) and //NODE[@num!='' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@num][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="num"><value-of select=".//NODE[@num!='']/@num"/></attribute>
+        <if test="$target">
+          <attribute name="num"><value-of select=".//NODE[@num!='' and count(ancestor::CHUNK)=1]/@num"/></attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -24,9 +26,11 @@
 
   <!-- per!=''/per	type!='adi-kat'/per	no-overwrite -->
   <def-rule id="ST_IntrachunkMove: (!='adi-kat') per->per" comment="">
-    <template match="//CHUNK[@type!='adi-kat' and not(@per) and .//NODE/@per!='']">
+    <template match="//CHUNK[@type!='adi-kat' and not(@per) and .//NODE/[@per!='' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@per][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="per"><value-of select=".//NODE[@per!='']/@per"/></attribute>
+        <if test="$target">
+          <attribute name="per"><value-of select=".//NODE[@per!='' and count(ancestor::CHUNK)=1]/@per"/></attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -34,9 +38,11 @@
 
   <!-- mi='[MG]'/mi	type!='adi-kat'/def	overwrite -->
   <def-rule id="ST_IntrachunkMove: (!='adi-kat' and '[MG]') mi->def" comment="">
-    <template match="//CHUNK[@type!='adi-kat' and .//NODE[@mi='[MG]']]">
+    <template match="//CHUNK[@type!='adi-kat' and .//NODE[count(ancestor::CHUNK)=1 and @mi='[MG]']]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@mi][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="def">[MG]</attribute>
+         <if test="$target">
+          <attribute name="def">[MG]</attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -46,9 +52,11 @@
 
   <!-- cas!=''/cas	/cas	concat -->
   <def-rule id="ST_IntrachunkMove: cas->.cas" comment="">
-    <template match="//CHUNK[.//NODE[@cas!='']]">
+    <template match="//CHUNK[.//NODE[@cas!='' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@cas][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="cas"><value-of select="concat(@cas, ',' , .//NODE[@cas!='']/@cas)"/></attribute>
+       <if test="$target">
+        <attribute name="cas"><value-of select="concat(@cas, ',' , .//NODE[@cas!='' and count(ancestor::CHUNK)=1]]/@cas)"/></attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -56,9 +64,11 @@
 
   <!-- cas!=''/ref	/casref	concat -->
   <def-rule id="ST_IntrachunkMove: ref->.casref" comment="">
-    <template match="//CHUNK[.//NODE[@cas!='']]">
+    <template match="//CHUNK[.//NODE[@cas!='' and count(ancestor::CHUNK)=1]]">
+     <variable name="c" select="." /><variable name="target" select="(.//NODE[@cas][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="casref"><value-of select="concat(@casref, ',', .//NODE[@ref!='']/@ref)"/></attribute>
+       <if test="$target">
+        <attribute name="casref"><value-of select="concat(@casref, ',', .//NODE[@cas!='' and count(ancestor::CHUNK)=1]/@ref)"/></attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -66,9 +76,11 @@
 
   <!-- cas!=''/alloc	/casalloc	concat -->
   <def-rule id="ST_IntrachunkMove: alloc->.casalloc" comment="">
-    <template match="//CHUNK[.//NODE[@cas!='']]">
+    <template match="//CHUNK[.//NODE[@cas!='' and count(ancestor::CHUNK)=1]]">
+     <variable name="c" select="." /><variable name="target" select="(.//NODE[@cas][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="casalloc"><value-of select="concat(@casalloc, ',', .//NODE[@cas!='']/@alloc)"/></attribute>
+       <if test="$target">
+        <attribute name="casalloc"><value-of select="concat(@casalloc, ',', .//NODE[@cas!='' and count(ancestor::CHUNK)=1]/@alloc)"/></attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -78,9 +90,11 @@
 
   <!-- vpost!=''/vpost	/vpost	overwrite -->
   <def-rule id="ST_IntrachunkMove: vpost->vpost" comment="">
-    <template match="//CHUNK[.//NODE[@vpost!='']]">
+    <template match="//CHUNK[.//NODE[@vpost!='' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@vpost][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="vpost"><value-of select=".//NODE[@vpost!='']/@vpost"/></attribute>
+       <if test="$target">
+        <attribute name="vpost"><value-of select=".//NODE[@vpost!='' and count(ancestor::CHUNK)=1]/@vpost"/></attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -88,9 +102,11 @@
 
   <!-- vpost!=''/ref	/vpostref	overwrite -->
   <def-rule id="ST_IntrachunkMove: ref->vpostref" comment="">
-    <template match="//CHUNK[.//NODE[@vpost!='']]">
+    <template match="//CHUNK[.//NODE[@vpost!='' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@vpost][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="vpostref"><value-of select=".//NODE[@vpost!='']/@ref"/></attribute>
+       <if test="$target">
+        <attribute name="vpostref"><value-of select=".//NODE[@vpost!='' and count(ancestor::CHUNK)=1]/@ref"/></attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -98,9 +114,11 @@
 
   <!-- vpost!=''/alloc	/vpostalloc	overwrite -->
   <def-rule id="ST_IntrachunkMove: alloc->vpostalloc" comment="">
-    <template match="//CHUNK[.//NODE[@vpost!='']]">
+    <template match="//CHUNK[.//NODE[@vpost!='' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@vpost][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="vpostalloc"><value-of select=".//NODE[@vpost!='']/@alloc"/></attribute>
+       <if test="$target">
+        <attribute name="vpostalloc"><value-of select=".//NODE[@vpost!='' and count(ancestor::CHUNK)=1]/@alloc"/></attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -113,9 +131,11 @@
   <!-- %vpost!=''/ref	/vpostref	overwrite -->
   <!-- %vpost!=''/alloc	/vpostalloc	overwrite -->
   <def-rule id="ST_IntrachunkMove: ('+n[ERL][MEN][MOS]' and ADB) +n[ERL][MEN][MOS]->vpost" comment="">
-    <template match="//CHUNK[@type='mend-p' and .//NODE/@pos='[ADB][ADOGAL]']">
+    <template match="//CHUNK[@type='mend-p' and .//NODE[@pos='[ADB][ADOGAL]' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@vpost][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="vpost">+n[ERL][MEN][MOS]</attribute>
+       <if test="$target">
+        <attribute name="vpost">+n[ERL][MEN][MOS]</attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -125,9 +145,11 @@
 
   <!-- spost!=''/spost	/spost	concat -->
   <def-rule id="ST_IntrachunkMove: spost->.spost" comment="">
-    <template match="//CHUNK[.//NODE/@spost!='']">
+    <template match="//CHUNK[.//NODE[@spost!='' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@spost][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="spost"><value-of select="concat(spost, ',', NODE/@spost)"/></attribute>
+       <if test="$target">
+        <attribute name="spost"><value-of select="concat(spost, ',', NODE[@spost and count(ancestor::CHUNK)=1]/@spost)"/></attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -135,9 +157,11 @@
 
   <!-- spost!=''/ref	/spostref	concat -->
   <def-rule id="ST_IntrachunkMove: ref->.spostref" comment="">
-    <template match="//CHUNK[.//NODE/@spost!='']">
+    <template match="//CHUNK[.//NODE[@spost!='' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@spost][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="spostref"><value-of select="concat(spostref, ',', NODE/@ref)"/></attribute>
+       <if test="$target">
+        <attribute name="spostref"><value-of select="concat(spostref, ',', NODE[@spost!='' and count(ancestor::CHUNK)=1]]/@ref)"/></attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -145,9 +169,11 @@
 
   <!-- spost!=''/alloc	/spostalloc	concat -->
   <def-rule id="ST_IntrachunkMove: alloc->.spostalloc" comment="">
-    <template match="//CHUNK[.//NODE/@spost!='']">
+    <template match="//CHUNK[.//NODE[@spost!='' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@spost][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="spostalloc"><value-of select="concat(spostalloc, ',', NODE/@alloc)"/></attribute>
+       <if test="$target">
+        <attribute name="spostalloc"><value-of select="concat(spostalloc, ',', NODE[@spost!='' and count(ancestor::CHUNK)=1]/@alloc)"/></attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -157,9 +183,11 @@
 
   <!-- npost!=''/npost	/npost	concat -->
   <def-rule id="ST_IntrachunkMove: npost->.npost" comment="">
-    <template match="//CHUNK[.//NODE/@npost!='']">
+    <template match="//CHUNK[.//NODE[@npost!='' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@npost][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="npost"><value-of select="concat(npost, ',', NODE/@npost)"/></attribute>
+       <if test="$target">
+        <attribute name="npost"><value-of select="concat(npost, ',', NODE[@npost!='' and count(ancestor::CHUNK)=1]/@npost)"/></attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -167,9 +195,11 @@
 
   <!-- npost!=''/ref	/npostref	concat -->
   <def-rule id="ST_IntrachunkMove: ref->.npostref" comment="">
-    <template match="//CHUNK[.//NODE/@npost!='']">
+    <template match="//CHUNK[.//NODE[@npost!='' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@npost][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="npostref"><value-of select="concat(npostref, ',', NODE/@ref)"/></attribute>
+       <if test="$target">
+        <attribute name="npostref"><value-of select="concat(npostref, ',', NODE[@npost!='' and count(ancestor::CHUNK)=1]/@ref)"/></attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -177,21 +207,25 @@
 
   <!-- npost!=''/alloc	/npostalloc	concat -->
   <def-rule id="ST_IntrachunkMove: alloc->.npostalloc" comment="">
-    <template match="//CHUNK[.//NODE/@npost!='']">
+    <template match="//CHUNK[.//NODE[@npost!='' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@npost][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="npostalloc"><value-of select="concat(@npostalloc, ',', NODE/@alloc)"/></attribute>
+       <if test="$target">
+        <attribute name="npostalloc"><value-of select="concat(@npostalloc, ',', NODE[@npost!='' and count(ancestor::CHUNK)=1]/@alloc)"/></attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
   </def-rule>
 
   <!-- -->
-
+ 
   <!-- prep!=''/prep	/prep	concat -->
   <def-rule id="ST_IntrachunkMove: prep->.prep" comment="">
-    <template match="//CHUNK[.//NODE/@prep!='']">
+    <template match="//CHUNK[.//NODE[@prep!='' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@prep][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="prep"><value-of select="concat(@prep, ',', NODE/@prep)"/></attribute>
+       <if test="$target">
+        <attribute name="prep"><value-of select="concat(@prep, ',', NODE[@prep!='' and count(ancestor::CHUNK)=1]/@prep)"/></attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -199,9 +233,11 @@
 
   <!-- prep!=''/ref	/casref	concat -->
   <def-rule id="ST_IntrachunkMove: ref->.casref" comment="">
-    <template match="//CHUNK[.//NODE/@prep!='']">
+    <template match="//CHUNK[.//NODE[@prep!='' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@prep][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="casref"><value-of select="concat(@casref, ',', NODE/@ref)"/></attribute>
+       <if test="$target">
+        <attribute name="casref"><value-of select="concat(@casref, ',', NODE[@prep!='' and count(ancestor::CHUNK)=1]/@ref)"/></attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -209,9 +245,11 @@
 
   <!-- prep!=''/alloc	/casalloc	concat -->
   <def-rule id="ST_IntrachunkMove: alloc->.casalloc" comment="">
-    <template match="//CHUNK[.//NODE[@prep!='']]">
+    <template match="//CHUNK[.//NODE[@prep!='' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@prep][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="casalloc"><value-of select="concat(@casalloc, ',', .//NODE[@prep!='']/@alloc)"/></attribute>
+       <if test="$target">
+        <attribute name="casalloc"><value-of select="concat(@casalloc, ',', .//NODE[@prep!=''and count(ancestor::CHUNK)=1]/@alloc)"/></attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -221,9 +259,11 @@
 
   <!-- lem='' and prep='' and sub='' and cas=''/ref	/casref	concat -->
   <def-rule id="ST_IntrachunkMove: (lem=prep=sub=cas='')ref->.casref" comment="">
-    <template match="//CHUNK[.//NODE[@lem='' and @prep='' and @sub='' and @cas='']]">
+    <template match="//CHUNK[.//NODE[@lem='' and @prep='' and @sub='' and @cas='' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@lem='' and @prep='' and @sub='' and @cas=''][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="casref"><value-of select="concat(@casref, ',', NODE[@lem='' and @prep='' and @sub='' and @cas='']/@ref)"/></attribute>
+       <if test="$target">
+        <attribute name="casref"><value-of select="concat(@casref, ',', NODE[@lem='' and @prep='' and @sub='' and @cas='' and count(ancestor::CHUNK)=1]/@ref)"/></attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -231,21 +271,25 @@
 
   <!-- lem='' and prep='' and sub='' and cas=''/alloc	/casalloc	concat -->
   <def-rule id="ST_IntrachunkMove: (lem=prep=sub=cas='')alloc->.casalloc" comment="">
-    <template match="//CHUNK[.//NODE[@lem='' and @prep='' and @sub='' and @cas='']]">
+    <template match="//CHUNK[.//NODE[@lem='' and @prep='' and @sub='' and @cas='' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@lem='' and @prep='' and @sub='' and @cas=''][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="casalloc"><value-of select="concat(@casalloc, ',', NODE[@lem='' and @prep='' and @sub='' and @cas='']/@alloc)"/></attribute>
+       <if test="$target">
+        <attribute name="casalloc"><value-of select="concat(@casalloc, ',', NODE[@lem='' and @prep='' and @sub='' and @cas='' and count(ancestor::CHUNK)=1]/@alloc)"/></attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
   </def-rule>
 
-  <!-- -->
+  <!-- --> 
 
   <!-- pos='[Z]'/'[MG]'	/def	overwrite -->
   <def-rule id="ST_IntrachunkMove: ([Z]) '[MG]'->def" comment="">
-    <template match="//CHUNK[.//NODE/@pos='[Z]']">
+    <template match="//CHUNK[.//NODE[@pos='[Z]' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@pos][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="def">[MG]</attribute>
+       <if test="$target">
+        <attribute name="def">[MG]</attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -253,9 +297,11 @@
 
   <!-- pos='[Zu]'/'[MG]'	/def	overwrite -->
   <def-rule id="ST_IntrachunkMove: ([Zu]) '[MG]'->def" comment="">
-    <template match="//CHUNK[.//NODE/@pos='[Zu]']">
+    <template match="//CHUNK[.//NODE[@pos='[Zu]' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@pos][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="def">[MG]</attribute>
+       <if test="$target">
+        <attribute name="def">[MG]</attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -263,9 +309,11 @@
 
   <!-- pos='[Zp]'/'[NUMS]'	/def	overwrite -->
   <def-rule id="ST_IntrachunkMove: ([Zp]) '[NUMS]'->def" comment="">
-    <template match="//CHUNK[.//NODE/@pos='[Zp]']">
+    <template match="//CHUNK[.//NODE[@pos='[Zp]' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@pos][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="def">[NUMS]</attribute>
+       <if test="$target">
+        <attribute name="def">[NUMS]</attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -273,9 +321,11 @@
 
   <!-- pos!=''/pos	/headpos	no-overwrite -->
   <def-rule id="ST_IntrachunkMove: pos->headpos" comment="">
-    <template match="//CHUNK[not(@headpos) and .//NODE/@pos!='']">
+    <template match="//CHUNK[not(@headpos) and .//NODE[@pos!='' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@pos][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="headpos"><value-of select=".//NODE[@pos!=''][1]/@pos"/></attribute>
+       <if test="$target">
+        <attribute name="headpos"><value-of select=".//NODE[@pos!='' and count(ancestor::CHUNK)=1][1]/@pos"/></attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -283,9 +333,11 @@
 
   <!-- lem!=''/lem	/headlem	no-overwrite -->
   <def-rule id="ST_IntrachunkMove: lem->headlem" comment="">
-    <template match="//CHUNK[not(@headlem) and .//NODE/@lem!='']">
+    <template match="//CHUNK[not(@headlem) and .//NODE[@lem!='' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@lem][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="headlem"><value-of select=".//NODE[@lem!=''][1]/@lem"/></attribute>
+       <if test="$target">
+        <attribute name="headlem"><value-of select=".//NODE[@lem!='' and count(ancestor::CHUNK)=1][1]/@lem"/></attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -293,9 +345,11 @@
 
   <!-- sem!=''/sem	/headsem	no-overwrite -->
   <def-rule id="ST_IntrachunkMove: sem->headsem" comment="">
-    <template match="//CHUNK[not(@headsem) and .//NODE/@sem!='']">
+    <template match="//CHUNK[not(@headsem) and .//NODE[@sem!='' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@sem][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="headsem"><value-of select=".//NODE[@sem!=''][1]/@sem"/></attribute>
+       <if test="$target">
+        <attribute name="headsem"><value-of select=".//NODE[@sem!='' and count(ancestor::CHUNK)=1][1]/@sem"/></attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -303,15 +357,18 @@
 
   <!-- pos='[Z]'/pos	/leafpos	overwrite -->
   <def-rule id="ST_IntrachunkMove: ([Z]) pos->leafpos" comment="">
-    <template match="//CHUNK[.//NODE[@pos='[Z]']]">
+    <template match="//CHUNK[.//NODE[@pos='[Z]' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@pos][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="leafpos"><value-of select="NODE[@pos='[Z]']/@pos"/></attribute>
+       <if test="$target">
+        <attribute name="leafpos"><value-of select="NODE[@pos='[Z]' and count(ancestor::CHUNK)=1]/@pos"/></attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
   </def-rule>
 
-  <!-- -->
+  <!-- -->  <!-- -->      <!-- -->  <!-- -->  <!-- -->  <!-- -->  <!-- -->  <!-- -->
+
 
   <!-- /'true'	si='subj'/subject	overwrite -->
   <def-rule id="ST_IntrachunkMove: (subj) true->subject" comment="">
@@ -327,9 +384,11 @@
 
   <!-- smi='Fit'/'p-int'	/type	overwrite -->
   <def-rule id="ST_IntrachunkMove: (Fit) 'p-int'->type" comment="">
-    <template match="//CHUNK[.//NODE[@smi='Fit']]">
+    <template match="//CHUNK[.//NODE[@smi='Fit' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@smi][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="type">p-int</attribute>
+       <if test="$target">
+        <attribute name="type">p-int</attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -337,9 +396,11 @@
 
   <!-- smi='Fia'/'p-int'	/type	overwrite -->
   <def-rule id="ST_IntrachunkMove: (Fia) 'p-int'->type" comment="">
-    <template match="//CHUNK[.//NODE[@smi='Fia']]">
+    <template match="//CHUNK[.//NODE[@smi='Fia' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@smi][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="type">p-int</attribute>
+       <if test="$target">
+        <attribute name="type">p-int</attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -349,9 +410,11 @@
 
   <!-- pos='[ADB][ADOGAL]'/'wh'	/qtype	overwrite -->
   <def-rule id="ST_IntrachunkMove: ([ADB][ADOGAL]) 'wh'->qtype" comment="">
-    <template match="//CHUNK[.//NODE[@pos='[ADB][ADOGAL]']]">
+    <template match="//CHUNK[.//NODE[@pos='[ADB][ADOGAL]' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@pos][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="qtype">wh</attribute>
+       <if test="$target">
+        <attribute name="qtype">wh</attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -359,9 +422,11 @@
 
   <!-- pos='[ADB][ALGGAL]'/'wh'	/qtype	overwrite -->
   <def-rule id="ST_IntrachunkMove: ([ADB][ALGGAL]) 'wh'->qtype" comment="">
-    <template match="//CHUNK[.//NODE[@pos='[ADB][ALGGAL]']]">
+    <template match="//CHUNK[.//NODE[@pos='[ADB][ALGGAL]' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@pos][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="qtype">wh</attribute>
+       <if test="$target">
+        <attribute name="qtype">wh</attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -369,9 +434,11 @@
 
   <!-- pos='[IOR][IZGGAL]'/'wh'	/qtype	overwrite -->
   <def-rule id="ST_IntrachunkMove: ([IOR][IZGGAL]) 'wh'->qtype" comment="">
-    <template match="//CHUNK[.//NODE[@pos='[IOR][IZGGAL]']]">
+    <template match="//CHUNK[.//NODE[@pos='[IOR][IZGGAL]' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@pos][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="qtype">wh</attribute>
+       <if test="$target">
+        <attribute name="qtype">wh</attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -379,9 +446,11 @@
 
   <!-- pos='[DET][NOLGAL]'/'wh'	/qtype	overwrite -->
   <def-rule id="ST_IntrachunkMove: ([DET][NOLGAL]) 'wh'->qtype" comment="">
-    <template match="//CHUNK[.//NODE[@pos='[DET][NOLGAL]']]">
+    <template match="//CHUNK[.//NODE[@pos='[DET][NOLGAL]' and count(ancestor::CHUNK)=1]]">
+      <variable name="c" select="." /><variable name="target" select="(.//NODE[@pos][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
       <copy>
-        <attribute name="qtype">wh</attribute>
+       <if test="$target">
+        <attribute name="qtype">wh</attribute></if>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 

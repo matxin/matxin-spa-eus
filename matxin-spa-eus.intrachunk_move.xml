@@ -321,11 +321,9 @@
 
   <!-- pos!=''/pos	/headpos	no-overwrite -->
   <def-rule id="ST_IntrachunkMove: pos->headpos" comment="">
-    <template match="//CHUNK[not(@headpos) and .//NODE[@pos!='' and count(ancestor::CHUNK)=1]]">
-      <variable name="c" select="." /><variable name="target" select="(.//NODE[@pos][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
+    <template match="//CHUNK[not(@headlem) and .//NODE[@pos!='' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]]">
       <copy>
-       <if test="$target">
-        <attribute name="headpos"><value-of select=".//NODE[@pos!='' and count(ancestor::CHUNK)=1][1]/@pos"/></attribute></if>
+        <attribute name="headpos"><value-of select=".//NODE[@pos!='' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]/@pos"/></attribute>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -333,27 +331,26 @@
 
   <!-- lem!=''/lem	/headlem	no-overwrite -->
   <def-rule id="ST_IntrachunkMove: lem->headlem" comment="">
-    <template match="//CHUNK[not(@headlem) and .//NODE[@lem!='' and count(ancestor::CHUNK)=1]]">
-      <variable name="c" select="." /><variable name="target" select="(.//NODE[@lem][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
+    <template match="//CHUNK[not(@headlem) and .//NODE[@lem!='' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]]">
       <copy>
-       <if test="$target">
-        <attribute name="headlem"><value-of select=".//NODE[@lem!='' and count(ancestor::CHUNK)=1][1]/@lem"/></attribute></if>
+        <attribute name="headlem"><value-of select=".//NODE[@lem!='' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]/@lem"/></attribute>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
   </def-rule>
 
+
   <!-- sem!=''/sem	/headsem	no-overwrite -->
   <def-rule id="ST_IntrachunkMove: sem->headsem" comment="">
-    <template match="//CHUNK[not(@headsem) and .//NODE[@sem!='' and count(ancestor::CHUNK)=1]]">
-      <variable name="c" select="." /><variable name="target" select="(.//NODE[@sem][count(ancestor::CHUNK[1] | $c) = 1])[1]"/>
+    <template match="//CHUNK[not(@headsem) and .//NODE[@sem!='' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]]">
       <copy>
-       <if test="$target">
-        <attribute name="headsem"><value-of select=".//NODE[@sem!='' and count(ancestor::CHUNK)=1][1]/@sem"/></attribute></if>
+        <attribute name="headsem"><value-of select=".//NODE[@sem!='' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]/@sem"/></attribute>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
   </def-rule>
+
+
 
   <!-- pos='[Z]'/pos	/leafpos	overwrite -->
   <def-rule id="ST_IntrachunkMove: ([Z]) pos->leafpos" comment="">

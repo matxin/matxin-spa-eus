@@ -1,16 +1,5 @@
 <transfer>
 
-  <!-- pos!=''/pos	/headpos	no-overwrite -->
-  <def-rule id="ST_IntrachunkMove: pos->headpos" comment="">
-    <template match="//CHUNK[not(@headlem) and .//NODE[@pos!='' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]]">
-      <copy>
-        <attribute name="headpos"><value-of select=".//NODE[@pos!='' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]/@pos"/></attribute>
-        <apply-templates select="@* | *"/>
-      </copy>
-    </template> 
-  </def-rule>
-
-
   <!-- def!=''/def	type!='adi-kat'/def	overwrite -->
   <def-rule id="ST_IntrachunkMove: def->def" comment="">
     <template match="//CHUNK[@type!='adi-kat' and //NODE[@def!='' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]]">

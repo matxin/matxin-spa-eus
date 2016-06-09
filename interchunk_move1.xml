@@ -1,0 +1,22 @@
+prep!=''/prep	type=~'emen'/prep	up	overwrite
+prep!=''/casref	type=~'emen'/casref	up	overwrite
+prep!=''/casalloc	type=~'emen'/casalloc	up	overwrite
+
+<transfer>
+
+  <!-- def!=''/def	type!='adi-kat'/def	overwrite -->
+  <def-rule id="ST_IntrachunkMove: def->def" comment="">
+    <template match="//CHUNK[@type!='adi-kat' and //NODE[@def!='' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]]">
+      <copy>
+        <attribute name="def"><value-of select="//NODE[@def!='' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]/@def"/></attribute>
+        <apply-templates select="@* | *"/>
+      </copy>
+    </template> 
+  </def-rule>
+  
+  
+  
+  
+  
+
+</transfer>

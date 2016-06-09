@@ -19,6 +19,7 @@ TARGETS_COMMON=$(PREFIX1).verb_transfer.fst \
 	       $(PREFIX1).interchunk_order.dat \
 	       $(PREFIX1).intrachunk_move.dat \
 	       $(PREFIX1).intrachunk_move.bin \
+	       $(PREFIX1).interchunk_move1.bin \
 	       $(PREFIX1).lexical_selection.dat \
 	       $(PREFIX1).semantic.dat \
 	       $(PREFIX1).verb_noun_subcat.dat \
@@ -71,6 +72,9 @@ $(PREFIX1).intrachunk_move.dat: $(BASENAME).intrachunk_move.dat
 	cp $< $@
 
 $(PREFIX1).intrachunk_move.bin: $(BASENAME).intrachunk_move.xml
+	matxin-preprocess-transfer $< $@
+
+$(PREFIX1).interchunk_move1.bin: $(BASENAME).interchunk_move1.xml
 	matxin-preprocess-transfer $< $@
 
 

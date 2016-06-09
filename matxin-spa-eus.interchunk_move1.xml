@@ -1,22 +1,55 @@
-prep!=''/prep	type=~'emen'/prep	up	overwrite
-prep!=''/casref	type=~'emen'/casref	up	overwrite
-prep!=''/casalloc	type=~'emen'/casalloc	up	overwrite
-
 <transfer>
 
-  <!-- def!=''/def	type!='adi-kat'/def	overwrite -->
-  <def-rule id="ST_IntrachunkMove: def->def" comment="">
-    <template match="//CHUNK[@type!='adi-kat' and //NODE[@def!='' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]]">
+<!-- prep!=''/prep	type=~'emen'/prep	up	overwrite -->
+<!-- prep!=''/casref	type=~'emen'/casref	up	overwrite -->
+<!-- prep!=''/casalloc	type=~'emen'/casalloc	up	overwrite -->
+
+  <def-rule id="" comment="">
+    <template match="//CHUNK[@prep!='' and ./CHUNK[contains(@type, 'emen')]]">
       <copy>
-        <attribute name="def"><value-of select="//NODE[@def!='' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]/@def"/></attribute>
+        <attribute name="prep"><value-of select="@prep"/></attribute>
+        <attribute name="casref"><value-of select="@casref"/></attribute>
+        <attribute name="casalloc"><value-of select="@casalloc"/></attribute>
+        <apply-templates select="@*[name()!='prep' and name()!='casref' and name()!='casalloc'] | *"/>
+      </copy>
+    </template>
+  </def-rule>
+
+  
+<!-- type='adi-pas'/'true'	prep='por'/subject	down	overwrite -->
+  
+  <def-rule id="" comment="">
+    <template match="//CHUNK[@prep='por' and ancestor::CHUNK[1][@type='adi-pas']]">
+      <copy>
+        <attribute name="subject">true</attribute>
         <apply-templates select="@* | *"/>
       </copy>
-    </template> 
+    </template>
   </def-rule>
-  
-  
-  
-  
+
+<!-- type='adi-pas'/'subj'	prep='por'/si	down	overwrite -->
+ 
+  <def-rule id="" comment="">
+    <template match="//CHUNK[@prep='por' and ancestor::CHUNK[1][@type='adi-pas']]">
+      <copy>
+        <attribute name="si">subj</attribute>
+        <apply-templates select="@*[name()!='si'] | *"/>
+      </copy>
+    </template>
+  </def-rule>
+
+<!-- type=~'adi-kat'/'true'  ref-1=parent.ref/focus  down    overwrite -->
+
+  <def-rule id="" comment="">
+    <template match="//CHUNK[ancestor::CHUNK[1][contains(@type,'adi-kat')] and (@ref - 1) = ancestor::CHUNK[1]/@ref]">
+      <copy>
+        <attribute name="focus">true</attribute>
+        <apply-templates select="@* | *"/>
+      </copy>
+    </template>
+  </def-rule>
+
+
   
 
 </transfer>

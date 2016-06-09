@@ -308,7 +308,7 @@
   </def-rule>
 
  <!-- pos='[Z]' && lem>'1800' && lem<'2050'/'[NUMS]' headpos=''/mi overwrite -->
-  <def-rule id="ST_IntrachunkMove: ([Z] && lem>'1800' && lem<'2050') '[NUMS]'->def" comment="">
+  <def-rule id="ST_IntrachunkMove: ([Z] and lem>'1800' and lem<'2050') '[NUMS]'->def" comment="">
     <template match="//CHUNK[.//NODE[@pos='[Z]' and @lem &gt; '1800' and @lem &lt; '2050' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]]">
       <copy>
         <attribute name="mi">[NUMS]</attribute>

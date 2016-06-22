@@ -3,8 +3,7 @@
 <!-- prep!=''/prep	type=~'emen'/prep	up	overwrite -->
 <!-- prep!=''/casref	type=~'emen'/casref	up	overwrite -->
 <!-- prep!=''/casalloc	type=~'emen'/casalloc	up	overwrite -->
-
-  <def-rule id="" comment="">
+  <def-rule id="ST_InterchunkMove1: (type=~'emen') prep/casref/casalloc->" comment="">
     <template match="//CHUNK[@prep!='' and ./CHUNK[contains(@type, 'emen')]]">
       <copy>
         <attribute name="prep"><value-of select="@prep"/></attribute>
@@ -14,22 +13,105 @@
       </copy>
     </template>
   </def-rule>
+ 
+<!-- spost!=''/spost	si='dobj'/cas	down	overwrite -->
+<!-- spost!=''/spostref	si='dobj'/casref	down	overwrite -->
+<!-- spost!=''/spostalloc	si='dobj'/casalloc	down	overwrite -->
+  <def-rule id="ST_InterchunkMove1: (si='dobj') spost/spostref/spostalloc->" comment="">
+    <template match="//CHUNK[@si='dobj' and ancestor::CHUNK[1][@spost!='']]">
+      <copy>
+        <attribute name="spost"><value-of select="@spost"/></attribute>
+        <attribute name="spostref"><value-of select="@spostref"/></attribute>
+        <attribute name="spostalloc"><value-of select="@spostalloc"/></attribute>
+        <apply-templates select="@*[name()!='spost' and name()!='spostref' and name()!='spostalloc'] | *"/>
+      </copy>
+    </template>
+  </def-rule>
 
+<!-- spost!='' && ref='1'/spost	ref='2'/cas	down	overwrite -->
+<!-- spost!='' && ref='1'/spostref	ref='2'/casref	down	overwrite -->
+<!-- spost!='' && ref='1'/spostalloc	ref='2'/casalloc	down	overwrite -->
+  <def-rule id="ST_InterchunkMove1: ((spost!='' and ref='1') and (ref ='2')) cas/casref/casalloc->" comment="">
+    <template match="//CHUNK[@ref='2' and ancestor::CHUNK[1][@spost!='' and ref='1']]">
+      <copy>
+        <attribute name="cas"><value-of select="@cas"/></attribute>
+        <attribute name="casref"><value-of select="@casref"/></attribute>
+        <attribute name="casalloc"><value-of select="@casalloc"/></attribute>
+        <apply-templates select="@*[name()!='cas' and name()!='casref' and name()!='casalloc'] | *"/>
+      </copy>
+    </template>
+  </def-rule>
   
+<!-- -->
+
+<!-- type='mend-p'/vpost	type='zehazt-s'/'+[DEK][ABS][NUMS]'	up	concat  -->
+  <def-rule id="ST_InterchunkMove1: (type=~'mend-p' and type=~'zehazt-s') vpost->.'+[DEK][ABS][NUMS]'" comment="">
+    <template match="//CHUNK[@type='mend-p' and ./CHUNK[@type='zehazt-s' ]]">
+      <copy>
+        <attribute name="vpost"><value-of select="concat(@vpost, ',+[DEK][ABS][NUMS]' )"/></attribute>
+        <apply-templates select="@*[name()!='vpost'] | *"/>
+      </copy>
+    </template>
+  </def-rule>
+
+<!-- type='mend-p'/vpost	type='zehazt-p'/'+[DEK][ABS][NUMP]'	up	concat  -->
+  <def-rule id="ST_InterchunkMove1: (type=~'mend-p' and type=~'zehazt-p') vpost->.'+[DEK][ABS][NUMP]'" comment="">
+    <template match="//CHUNK[@type='mend-p' and ./CHUNK[@type='zehazt-p' ]]">
+      <copy>
+        <attribute name="vpost"><value-of select="concat(@vpost, ',+[DEK][ABS][NUMP]' )"/></attribute>
+        <apply-templates select="@*[name()!='vpost'] | *"/>
+      </copy>
+    </template>
+  </def-rule>
+
+<!-- -->
+
+<!-- type='mend-p' && vpost!=''/vpost	type=~'adi-'/rel	down	overwrite -->
+  <def-rule id="ST_InterchunkMove1: ((type='mend-p' and vpost!='') and (type=~'adi-')) vpost->rel" comment="">
+    <template match="//CHUNK[contains(@type, 'adi-') and ancestor::CHUNK[1][@type='mend-p' and @vpost!='']]">
+      <copy>
+        <attribute name="rel"><value-of select="@vpost"/></attribute>
+        <apply-templates select="@*[name()!='rel'] | *"/>
+      </copy>
+    </template>
+  </def-rule>
+  
+<!-- vpost!=''/'[ZERO]'	  type=~'adi-'/cas	down	overwrite -->
+<!-- vpost!=''/vpostref	  type=~'adi-'/relref	down	overwrite -->
+<!-- vpost!=''/vpostalloc	type=~'adi-'/relalloc	down	overwrite -->
+  <def-rule id="ST_InterchunkMove1: (vpost!='' and type=~'adi-') cas->'[ZERO]'" comment="">
+    <template match="//CHUNK[contains(@type, 'adi-') and ancestor::CHUNK[1][@vpost!='']]">
+      <copy>
+        <attribute name="cas">[ZERO]</attribute>
+        <attribute name="relref"><value-of select="@vpostref"/></attribute>
+        <attribute name="relalloc"><value-of select="@vpostalloc"/></attribute>
+        <apply-templates select="@*[name()!='cas' and name()!='relref' and name()!='relalloc' ] | *"/>
+      </copy>
+    </template>
+  </def-rule>
+  
+<!-- #/'[NUMS]'	type='mend-p'/mi	down	overwrite -->
+<!-- #/'[NUMS]'	type!~'adi-' && def='[MUGM]' && num='[NUMS]'/mi	down	no-overwrite -->
+<!-- #/'[NUMP]'	type!~'adi-' && def='[MUGM]' && num='[NUMP]'/mi	down	no-overwrite -->
+<!-- #/'[NUMS]'	type!~'adi-' && def='' && num='[NUMS]'/mi	down	no-overwrite -->
+<!-- #/'[NUMP]'	type!~'adi-' && def='' && num='[NUMP]'/mi	down	no-overwrite -->
+<!-- #/'[MG]'	type!~'adi-' && def='[MG]'/mi	down	no-overwrite -->
+
+<!-- -->
+
 <!-- type='adi-pas'/'true'	prep='por'/subject	down	overwrite -->
-  
   <def-rule id="" comment="">
     <template match="//CHUNK[@prep='por' and ancestor::CHUNK[1][@type='adi-pas']]">
       <copy>
         <attribute name="subject">true</attribute>
-        <apply-templates select="@* | *"/>
+        <apply-templates select="@*[name()!='subject'] | *"/>
+  <!--  <apply-templates select="@* | *"/>  -->
       </copy>
     </template>
   </def-rule>
 
 <!-- type='adi-pas'/'subj'	prep='por'/si	down	overwrite -->
- 
-  <def-rule id="" comment="">
+   <def-rule id="" comment="">
     <template match="//CHUNK[@prep='por' and ancestor::CHUNK[1][@type='adi-pas']]">
       <copy>
         <attribute name="si">subj</attribute>
@@ -37,19 +119,78 @@
       </copy>
     </template>
   </def-rule>
+  
+<!-- -->
 
 <!-- type=~'adi-kat'/'true'  ref-1=parent.ref/focus  down    overwrite -->
-
   <def-rule id="" comment="">
     <template match="//CHUNK[ancestor::CHUNK[1][contains(@type,'adi-kat')] and (@ref - 1) = ancestor::CHUNK[1]/@ref]">
       <copy>
         <attribute name="focus">true</attribute>
-        <apply-templates select="@* | *"/>
+        <apply-templates select="@*[name()!='focus'] | *"/>
+   <!-- <apply-templates select="@* | *"/> -->
       </copy>
     </template>
   </def-rule>
 
+<!-- -->
 
+<!-- type='p-int'/'true'	type=~'adi-'/quest	down	overwrite -->
+   <def-rule id="ST_InterchunkMove1: (type='p-int' and	type=~'adi-') quest->'true'" comment="">
+    <template match="//CHUNK[contains(@type,'adi-kat') and ancestor::CHUNK[1][@type='p-int']]">
+      <copy>
+        <attribute name="quest">true</attribute>
+        <apply-templates select="@*[name()!='quest'] | *"/>
+      </copy>
+    </template>
+  </def-rule>
+
+<!-- -->
+
+<!-- type='ez'/'true'	      type=~'adi-'/neg	up	overwrite -->
+  <def-rule id="ST_InterchunkMove1: (type='ez' and type=~'adi-') neg->'true'" comment="">
+    <template match="//CHUNK[@type='ez' and ./CHUNK[contains(@type, 'adi-')]]">
+      <copy>
+        <attribute name="neg">true</attribute>
+        <apply-templates select="@*[name()!='neg' | *"/>
+      </copy>
+    </template>
+  </def-rule>
+
+<!-- type='ez'/'adi-kat-ez'	type='adi-kat'/type	up	overwrite -->
+  <def-rule id="ST_InterchunkMove1: (type='ez' and type='adi-kat') type->'adi-kat-ez'" comment="">
+    <template match="//CHUNK[@type='ez' and ./CHUNK[@type='adi-kat']]">
+      <copy>
+        <attribute name="type">adi-kat-ez</attribute>
+        <apply-templates select="@*[name()!='type' | *"/>
+      </copy>
+    </template>
+  </def-rule>
   
+<!-- type='ez'/'adi-pas-ez'	type='adi-pas'/type	up	overwrite -->
+  <def-rule id="ST_InterchunkMove1: (type='ez' and type='adi-pas') type->'adi-pas-ez'" comment="">
+    <template match="//CHUNK[@type='ez' and ./CHUNK[@type='adi-pas']]">
+      <copy>
+        <attribute name="type">adi-pas-ez</attribute>
+        <apply-templates select="@*[name()!='type' | *"/>
+      </copy>
+    </template>
+  </def-rule>
+  
+<!-- -->
+
+<!-- qtype='wh'/'wh'	type=~'adi-'/qtype	up	overwrite -->
+  <def-rule id="ST_InterchunkMove1: (qtype='wh' and type=~'adi-') qtype->'wh'" comment="">
+    <template match="//CHUNK[@type='wh' and ./CHUNK[contains(@type, 'adi-')]]">
+      <copy>
+        <attribute name="qtype">wh</attribute>
+        <apply-templates select="@*[name()!='qtype' | *"/>
+      </copy>
+    </template>
+  </def-rule>
+
+<!-- #si='dobj' && type='mend-p'/'[NUMS]'	type=~'adi-'/objMi	up	overwrite -->
+<!-- #si='dobj'/'[NUMS]'	type=~'adi-'/objMi	up	overwrite -->
+
 
 </transfer>

@@ -51,6 +51,7 @@
       </copy>
     </template> 
   </def-rule>
+  <!-- En esta regal falta controlar que la primera vez no ponga ',' -->
 
 
   <!-- cas!=''/ref	/casref	concat -->

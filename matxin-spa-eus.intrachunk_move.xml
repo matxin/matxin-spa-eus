@@ -2,9 +2,9 @@
 
   <!-- def!=''/def	type!='adi-kat'/def	overwrite -->
   <def-rule id="ST_IntrachunkMove: def->def" comment="">
-    <template match="//CHUNK[@type!='adi-kat' and //NODE[@def!='' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]]">
+    <template match="//CHUNK[@type!='adi-kat' and .//NODE[@def!='' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]]">
       <copy>
-        <attribute name="def"><value-of select="//NODE[@def!='' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]/@def"/></attribute>
+        <attribute name="def"><value-of select=".//NODE[@def!='' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]/@def"/></attribute>
         <apply-templates select="@* | *"/>
       </copy>
     </template> 
@@ -12,7 +12,7 @@
 
   <!-- num!=''/num	type!='adi-kat'/num	no-overwrite -->
   <def-rule id="ST_IntrachunkMove: (!='adi-kat') num->num" comment="">
-    <template match="//CHUNK[@type!='adi-kat' and not(@num) and //NODE[@num!='' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]]">
+    <template match="//CHUNK[@type!='adi-kat' and not(@num) and .//NODE[@num!='' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]]">
       <copy>
         <attribute name="num"><value-of select=".//NODE[@num!='' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]/@num"/></attribute>
         <apply-templates select="@* | *"/>

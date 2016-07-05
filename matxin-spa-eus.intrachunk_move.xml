@@ -349,7 +349,7 @@
 
   <!-- pos!=''/pos	/headpos	no-overwrite -->
   <def-rule id="ST_IntrachunkMove: pos->headpos" comment="">
-    <template match="//CHUNK[not(@headlem) and .//NODE[@pos!='' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]]">
+    <template match="//CHUNK[not(@headpos) and .//NODE[@pos!='' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]]">
       <copy>
         <attribute name="headpos"><value-of select=".//NODE[@pos!='' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]/@pos"/></attribute>
         <apply-templates select="@* | *"/>

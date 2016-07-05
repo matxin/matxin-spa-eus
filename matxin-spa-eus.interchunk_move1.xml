@@ -152,7 +152,7 @@
     <template match="//CHUNK[@type='ez' and ./CHUNK[contains(@type, 'adi-')]]">
       <copy>
         <attribute name="neg">true</attribute>
-        <apply-templates select="@*[name()!='neg' | *"/>
+        <apply-templates select="@*[name() != 'neg'] | *"/>
       </copy>
     </template>
   </def-rule>
@@ -162,7 +162,7 @@
     <template match="//CHUNK[@type='ez' and ./CHUNK[@type='adi-kat']]">
       <copy>
         <attribute name="type">adi-kat-ez</attribute>
-        <apply-templates select="@*[name()!='type' | *"/>
+        <apply-templates select="@*[name()!='type'] | *"/>
       </copy>
     </template>
   </def-rule>
@@ -172,7 +172,7 @@
     <template match="//CHUNK[@type='ez' and ./CHUNK[@type='adi-pas']]">
       <copy>
         <attribute name="type">adi-pas-ez</attribute>
-        <apply-templates select="@*[name()!='type' | *"/>
+        <apply-templates select="@*[name()!='type'] | *"/>
       </copy>
     </template>
   </def-rule>
@@ -184,7 +184,7 @@
     <template match="//CHUNK[@type='wh' and ./CHUNK[contains(@type, 'adi-')]]">
       <copy>
         <attribute name="qtype">wh</attribute>
-        <apply-templates select="@*[name()!='qtype' | *"/>
+        <apply-templates select="@*[name()!='qtype'] | *"/>
       </copy>
     </template>
   </def-rule>

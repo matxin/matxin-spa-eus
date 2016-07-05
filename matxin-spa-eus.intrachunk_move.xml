@@ -51,11 +51,10 @@
                 </when>
                 <otherwise><attribute name="cas"><value-of select=".//NODE[@cas!='' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]/@cas"/></attribute>
                 </otherwise></choose>
-        <apply-templates select="@* | *"/>
+        <apply-templates select="@*[name() != 'cas'] | *"/>
       </copy>
     </template> 
   </def-rule>
-  <!-- XX En esta regla falta controlar que la primera vez no ponga ',' -->
 
 
   <!-- cas!=''/ref	/casref	concat -->
@@ -162,7 +161,7 @@
                 </when>
                 <otherwise><attribute name="spost"><value-of select=".//NODE[@spost!='' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]/@spost"/></attribute>
                 </otherwise></choose>
-        <apply-templates select="@* | *"/>
+        <apply-templates select="@*[name() != 'spost'] | *"/>
       </copy>
     </template> 
   </def-rule>
@@ -176,7 +175,7 @@
                 </when>
                 <otherwise><attribute name="spostref"><value-of select=".//NODE[@spost!='' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]/@ref"/></attribute>
                 </otherwise></choose>
-        <apply-templates select="@* | *"/>
+        <apply-templates select="@*[name() != 'spostref'] | *"/>
       </copy>
     </template> 
   </def-rule>
@@ -190,7 +189,7 @@
                 </when>
                 <otherwise><attribute name="spostalloc"><value-of select=".//NODE[@spost!='' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]/@alloc"/></attribute>
                 </otherwise></choose>
-        <apply-templates select="@* | *"/>
+        <apply-templates select="@*[name() != 'spostalloc'] | *"/>
       </copy>
     </template> 
   </def-rule>
@@ -206,7 +205,7 @@
                 </when>
                 <otherwise><attribute name="npost"><value-of select=".//NODE[@npost!='' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]/@npost"/></attribute>
                 </otherwise></choose>
-        <apply-templates select="@* | *"/>
+        <apply-templates select="@*[name() != 'npost'] | *"/>
       </copy>
     </template> 
   </def-rule>
@@ -220,7 +219,7 @@
                 </when>
                 <otherwise><attribute name="npostref"><value-of select=".//NODE[@npost!='' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]/@ref"/></attribute>
                 </otherwise></choose>
-        <apply-templates select="@* | *"/>
+        <apply-templates select="@*[name() != 'npostref'] | *"/>
       </copy>
     </template> 
   </def-rule>
@@ -234,7 +233,7 @@
                 </when>
                 <otherwise><attribute name="npostalloc"><value-of select=".//NODE[@npost!='' and generate-id(ancestor::CHUNK[1]) = generate-id(current())]/@alloc"/></attribute>
                 </otherwise></choose>
-        <apply-templates select="@* | *"/>
+        <apply-templates select="@*[name() != 'npostalloc'] | *"/>
       </copy>
     </template> 
   </def-rule>

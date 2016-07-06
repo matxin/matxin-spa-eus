@@ -98,7 +98,7 @@
   <def-rule id="ST_InterchunkMove2: (type=~'adi' and (si='dobj' and per='' and leafpos='[Z]')) objMi<-'[NUMP]'" comment="">
     <template match="//CHUNK[contains(@type, 'adi-') and ./CHUNK[@si='dobj' and per='' and leafpos='[Z]']]">
       <copy>
-        <attribute name="objMi">'[NUMP]'</attribute>
+        <attribute name="objMi">[NUMP]</attribute>
         <apply-templates select="@*[name()!='objMi'] | *"/>
       </copy>
     </template>
@@ -123,7 +123,7 @@
   <def-rule id="ST_InterchunkMove2: (type=~'adi' and (si='subj' and per='' and leafpos='[Z]')) subMi<-'[NUMP]'" comment="">
     <template match="//CHUNK[contains(@type, 'adi-') and ./CHUNK[@si='subj' and per='' and leafpos='[Z]']]">
       <copy>
-        <attribute name="subMi">'[NUMP]'</attribute>
+        <attribute name="subMi">[NUMP]</attribute>
         <apply-templates select="@*[name()!='subMi'] | *"/>
       </copy>
     </template>
@@ -134,7 +134,7 @@
   <def-rule id="ST_InterchunkMove2: (type=~'adi' and (cas='[DAT]' and per='' and leafpos='[Z]')) objMi<-'[NUMP]'" comment="">
     <template match="//CHUNK[contains(@type, 'adi-') and ./CHUNK[@cas='[DAT]' and per='' and leafpos='[Z]']]">
       <copy>
-        <attribute name="datMi">'[NUMP]'</attribute>
+        <attribute name="datMi">[NUMP]</attribute>
         <apply-templates select="@*[name()!='datMi'] | *"/>
       </copy>
     </template>
@@ -144,7 +144,7 @@
   <def-rule id="ST_InterchunkMove2: (type=~'adi' and si='vsubord') objMi<-'[NUMP]'" comment="">
     <template match="//CHUNK[contains(@type, 'adi-') and ./CHUNK[@si='vsubord']]">
       <copy>
-        <attribute name="objMi">'[NUMS]'</attribute>
+        <attribute name="objMi">[NUMS]</attribute>
         <apply-templates select="@*[name()!='objMi'] | *"/>
       </copy>
     </template>
@@ -156,7 +156,7 @@
   <def-rule id="ST_InterchunkMove2: ((type=~'adi' and quest='true' and qtype!='wh') and si='vsubord') qtype<-'yn'" comment="">
     <template match="//CHUNK[contains(@type, 'adi-') and quest='true' and qtype!='wh']">
       <copy>
-        <attribute name="qtype">'yn'</attribute>
+        <attribute name="qtype">yn</attribute>
         <apply-templates select="@*[name()!='qtype'] | *"/>
       </copy>
     </template>

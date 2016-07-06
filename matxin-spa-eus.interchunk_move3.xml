@@ -44,7 +44,7 @@
 
 <!-- type=~'emen'/cas	type='is'/cas	down	overwrite -->
   <def-rule id="ST_InterchunkMove1: (type=~'emen' and type='is') cas→cas" comment="">
-    <template match="//CHUNK[@type='is' and ancestor::CHUNK[1][@type=~'emen']]">
+    <template match="//CHUNK[@type='is' and ancestor::CHUNK[1][contains(@type, 'emen')]]">
       <copy>
         <attribute name="cas"><value-of select="ancestor::CHUNK[1]/@cas"/></attribute>
         <apply-templates select="@*[name()!='cas'] | *"/>
@@ -89,7 +89,7 @@
 
 <!-- type=~'adi-kat'/'[ABS][NUMS]'	si='att' and cas='[GEL]'/cas	down	concat -->
    <def-rule id="ST_InterchunkMove3: (type=~'adi-kat' and (si='att' and cas='[GEL]')) '[ABS][NUMS]'→cas" comment="">
-    <template match="//CHUNK[@si='att' and @cas='[GEL]' and ancestor::CHUNK[1][@type=~'adi-kat']]">
+    <template match="//CHUNK[@si='att' and @cas='[GEL]' and ancestor::CHUNK[1][contains(@type, 'adi-kat')]]">
       <copy>
         <attribute name="cas">[ABS][NUMS]</attribute>
         <apply-templates select="@*[name()!='cas'] | *"/>
@@ -99,7 +99,7 @@
 
 <!-- type=~'adi-kat'/'[ABS][NUMS]' si='att' and cas='[GEN]'/cas down concat -->
    <def-rule id="ST_InterchunkMove3: (type=~'adi-kat' and (si='att' and cas='[GEN]')) '[ABS][NUMS]'→cas" comment="">
-    <template match="//CHUNK[@si='att' and @cas='[GEN]' and ancestor::CHUNK[1][@type=~'adi-kat']]">
+    <template match="//CHUNK[@si='att' and @cas='[GEN]' and ancestor::CHUNK[1][contains(@type, 'adi-kat')]]">
       <copy>
         <attribute name="cas">[ABS][NUMS]</attribute>
         <apply-templates select="@*[name()!='cas'] | *"/>

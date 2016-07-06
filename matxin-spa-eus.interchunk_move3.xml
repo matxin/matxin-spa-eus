@@ -1,0 +1,112 @@
+<transfer>
+
+<!-- trans='DIO'/'[ERG]'	si='subj'/cas	down	overwrite -->
+   <def-rule id="ST_InterchunkMove3: (trans='DIO' and	si='subj') '[ERG]'->cas" comment="">
+    <template match="//CHUNK[@si='subj' and ancestor::CHUNK[1][@trans='DIO']]">
+      <copy>
+        <attribute name="cas">[ERG]</attribute>
+        <apply-templates select="@*[name()!='cas'] | *"/>
+      </copy>
+    </template>
+</def-rule>
+
+<!-- trans='DU'/'[ERG]'	si='subj'/cas	down	overwrite -->
+   <def-rule id="ST_InterchunkMove3: (trans='DU' and	si='subj') '[ERG]'->cas" comment="">
+    <template match="//CHUNK[@si='subj' and ancestor::CHUNK[1][@trans='DU']]">
+      <copy>
+        <attribute name="cas">[ERG]</attribute>
+        <apply-templates select="@*[name()!='cas'] | *"/>
+      </copy>
+    </template>
+</def-rule>
+
+<!-- trans='ZAIO'/'[ABS]'	si='subj'/cas	down	overwrite -->
+   <def-rule id="ST_InterchunkMove3: (trans='ZAIO' and	si='subj') '[ABS]'->cas" comment="">
+    <template match="//CHUNK[@si='subj' and ancestor::CHUNK[1][@trans='ZAIO']]">
+      <copy>
+        <attribute name="cas">[ABS]</attribute>
+        <apply-templates select="@*[name()!='cas'] | *"/>
+      </copy>
+    </template>
+</def-rule>
+
+<!-- trans='DA'/'[ABS]'	si='subj'/cas	down	overwrite -->
+   <def-rule id="ST_InterchunkMove3: (trans='DA' and	si='subj') '[ABS]'->cas" comment="">
+    <template match="//CHUNK[@si='subj' and ancestor::CHUNK[1][@trans='DA']]">
+      <copy>
+        <attribute name="cas">[ABS]</attribute>
+        <apply-templates select="@*[name()!='cas'] | *"/>
+      </copy>
+    </template>
+</def-rule>
+
+<!-- -->
+
+<!-- type=~'emen'/cas	type='is'/cas	down	overwrite -->
+  <def-rule id="ST_InterchunkMove1: (type=~'emen' and type='is') cas->cas" comment="">
+    <template match="//CHUNK[@type='is' and ancestor::CHUNK[1][@type=~'emen']]">
+      <copy>
+        <attribute name="cas"><value-of select="ancestor::CHUNK[1]/@cas"/></attribute>
+        <apply-templates select="@*[name()!='cas'] | *"/>
+      </copy>
+    </template>
+</def-rule>
+
+
+<!-- -->
+
+<!-- /'[MG]'	type!='adi-kat' && def='' && num='[NUMS]' && cas='[INS]'/mi	down	overwrite -->
+   <def-rule id="ST_InterchunkMove3: (type!='adi-kat' and def='' and num='[NUMS]' and cas='[INS]') '[MG]'->mi" comment="">
+    <template match="//CHUNK[@type!='adi-kat' and @def='' and @num='[NUMS]' and @cas='[INS]']">
+      <copy>
+        <attribute name="mi">[MG]</attribute>
+        <apply-templates select="@*[name()!='mi'] | *"/>
+      </copy>
+    </template>
+</def-rule>
+
+<!-- /'[MG]'	type!='adi-kat' && def='' && num='[NUMS]' && cas='[INS][GEL]'/mi	down	overwrite  -->
+   <def-rule id="ST_InterchunkMove3: (type!='adi-kat' and def='' and num='[NUMS]' and cas='[INS][GEL]') '[MG]'->mi" comment="">
+    <template match="//CHUNK[@type!='adi-kat' and @def='' and @num='[NUMS]' and @cas='[INS][GEL]']">
+      <copy>
+        <attribute name="mi">[MG]</attribute>
+        <apply-templates select="@*[name()!='mi'] | *"/>
+      </copy>
+    </template>
+</def-rule>
+<!-- -->
+
+<!-- /'+[DEK][GEL]'	type='adi-inf' && rel='+n[ERL][MEN][MOS]'/cas	down	overwrite -->
+   <def-rule id="ST_InterchunkMove3: (type='adi-inf' and rel='+n[ERL][MEN][MOS]') '+[DEK][GEL]'->cas" comment="">
+    <template match="//CHUNK[@type='adi-inf' and @rel='+n[ERL][MEN][MOS]']">
+      <copy>
+        <attribute name="mi">+[DEK][GEL]</attribute>
+        <apply-templates select="@*[name()!='mi'] | *"/>
+      </copy>
+    </template>
+</def-rule>
+<!-- -->
+
+<!-- type=~'adi-kat'/'[ABS][NUMS]'	si='att' && cas='[GEL]'/cas	down	concat -->
+   <def-rule id="ST_InterchunkMove3: (type=~'adi-kat' and (si='att' && cas='[GEL]')) '[ABS][NUMS]'->cas" comment="">
+    <template match="//CHUNK[@si='att' && @cas='[GEL]' and ancestor::CHUNK[1][@type=~'adi-kat']]">
+      <copy>
+        <attribute name="cas">[ABS][NUMS]</attribute>
+        <apply-templates select="@*[name()!='cas'] | *"/>
+      </copy>
+    </template>
+</def-rule>
+
+<!-- type=~'adi-kat'/'[ABS][NUMS]' si='att' && cas='[GEN]'/cas down concat -->
+   <def-rule id="ST_InterchunkMove3: (type=~'adi-kat' and (si='att' && cas='[GEN]')) '[ABS][NUMS]'->cas" comment="">
+    <template match="//CHUNK[@si='att' && @cas='[GEN]' and ancestor::CHUNK[1][@type=~'adi-kat']]">
+      <copy>
+        <attribute name="cas">[ABS][NUMS]</attribute>
+        <apply-templates select="@*[name()!='cas'] | *"/>
+      </copy>
+    </template>
+</def-rule>
+
+
+
+</transfer>

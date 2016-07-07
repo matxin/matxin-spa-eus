@@ -2,9 +2,9 @@
 
 <!-- si='subj'/per	type=~'adi-'/subMi	up	overwrite -->
   <def-rule id="ST_InterchunkMove2: (type=~'adi' and si='subj') subMi←per" comment="">
-    <template match="//CHUNK[contains(@type, 'adi-') and ./CHUNK[@si='subj']]">
+    <template match="//CHUNK[contains(@type, 'adi-') and ./CHUNK[@si='subj' and @per != '']]">
       <copy>
-        <attribute name="subMi"><value-of select="./CHUNK[@si='subj']/@per"/></attribute>
+        <attribute name="subMi"><value-of select="./CHUNK[@si='subj' and @per != '']/@per"/></attribute>
         <apply-templates select="@*[name()!='subMi'] | *"/>
       </copy>
     </template>
@@ -12,9 +12,9 @@
 
 <!-- si='dobj'/per	type=~'adi-'/objMi	up	overwrite -->
   <def-rule id="ST_InterchunkMove2: (type=~'adi' and si='dobj') objMi←per" comment="">
-    <template match="//CHUNK[contains(@type, 'adi-') and ./CHUNK[@si='dobj']]">
+    <template match="//CHUNK[contains(@type, 'adi-') and ./CHUNK[@si='dobj' and @per != '']]">
       <copy>
-        <attribute name="objMi"><value-of select="./CHUNK[@si='dobj']/@per"/></attribute>
+        <attribute name="objMi"><value-of select="./CHUNK[@si='dobj' and @per != '']/@per"/></attribute>
         <apply-templates select="@*[name()!='objMi'] | *"/>
       </copy>
     </template>
@@ -23,9 +23,9 @@
 
 <!-- cas='[DAT]'/per	type=~'adi-'/datMi	up	overwrite -->
   <def-rule id="ST_InterchunkMove2: (type=~'adi' and cas='[DAT]') datMi←per" comment="">
-    <template match="//CHUNK[contains(@type, 'adi-') and ./CHUNK[@cas='[DAT]']]">
+    <template match="//CHUNK[contains(@type, 'adi-') and ./CHUNK[@cas='[DAT]' and @per != '']]">
       <copy>
-        <attribute name="datMi"><value-of select="./CHUNK[@cas='[DAT]']/@per"/></attribute>
+        <attribute name="datMi"><value-of select="./CHUNK[@cas='[DAT]' and @per != '']/@per"/></attribute>
         <apply-templates select="@*[name()!='datMi'] | *"/>
       </copy>
     </template>
@@ -33,9 +33,9 @@
 
 <!-- si='iobj' && cas!='[DAT]'/per	type=~'adi-'/objMi	up	overwrite -->
   <def-rule id="ST_InterchunkMove2: (type=~'adi' and (si='iobj' and cas='[DAT]')) objMi←per" comment="">
-    <template match="//CHUNK[contains(@type, 'adi-') and ./CHUNK[@si='iobj' and @cas='[DAT]']]">
+    <template match="//CHUNK[contains(@type, 'adi-') and ./CHUNK[@si='iobj' and @cas!='[DAT]' and @per != '']]">
       <copy>
-        <attribute name="objMi"><value-of select="./CHUNK[@si='iobj' and @cas='[DAT]']/@per"/></attribute>
+        <attribute name="objMi"><value-of select="./CHUNK[@si='iobj' and @cas!='[DAT]' and @per != '']/@per"/></attribute>
         <apply-templates select="@*[name()!='objMi'] | *"/>
       </copy>
     </template>
@@ -44,9 +44,9 @@
 
 <!-- si='subj' && per=''/mi	type=~'adi-'/subMi	up	overwrite -->
   <def-rule id="ST_InterchunkMove2: (type=~'adi' and (si='subj' and per='')) subMi←per" comment="">
-    <template match="//CHUNK[contains(@type, 'adi-') and ./CHUNK[@si='subj' and @per='']]">
+    <template match="//CHUNK[contains(@type, 'adi-') and ./CHUNK[@si='subj' and not(boolean(@per)) and @mi != '']]">
       <copy>
-        <attribute name="subMi"><value-of select="./CHUNK[@si='subj' and @per='']/@mi"/></attribute>
+        <attribute name="subMi"><value-of select="./CHUNK[@si='subj' and not(boolean(@per)) and @mi != '']/@mi"/></attribute>
         <apply-templates select="@*[name()!='subMi'] | *"/>
       </copy>
     </template>
@@ -54,9 +54,9 @@
 
 <!-- si='iobj' && cas='[ABS]' && per=''/mi	type=~'adi-'/objMi	up	overwrite -->
   <def-rule id="ST_InterchunkMove2: (type=~'adi' and (si='iobj' and cas='[ABS]' and per='')) objMi←per" comment="">
-    <template match="//CHUNK[contains(@type, 'adi-') and ./CHUNK[@si='subj' and cas='[ABS]' and @per='']]">
+    <template match="//CHUNK[contains(@type, 'adi-') and ./CHUNK[@si='subj' and @cas='[ABS]' and @per='' and @mi != '']]">
       <copy>
-        <attribute name="objMi"><value-of select="./CHUNK[@si='subj' and cas='[ABS]' and @per='']/@mi"/></attribute>
+        <attribute name="objMi"><value-of select="./CHUNK[@si='subj' and @cas='[ABS]' and @per='' and @mi != '']/@mi"/></attribute>
         <apply-templates select="@*[name()!='objMi'] | *"/>
       </copy>
     </template>
@@ -65,9 +65,9 @@
 
 <!-- cas='[DAT]' && per=''&& mi!='[MG]'/mi	type=~'adi-'/datMi	up	overwrite -->
   <def-rule id="ST_InterchunkMove2: (type=~'adi' and (cas='[DAT]' and per='' and mi!='[MG]')) datMi←mi" comment="">
-    <template match="//CHUNK[contains(@type, 'adi-') and ./CHUNK[@cas='[DAT]' and per='' and mi!='[MG]']]">
+    <template match="//CHUNK[contains(@type, 'adi-') and ./CHUNK[@cas='[DAT]' and @per='' and @mi!='[MG]' and @mi != '']]">
       <copy>
-        <attribute name="datMi"><value-of select="./CHUNK[@cas='[DAT]' and per='' and mi!='[MG]']/@mi"/></attribute>
+        <attribute name="datMi"><value-of select="./CHUNK[@cas='[DAT]' and @per='' and @mi!='[MG]' and @mi != '']/@mi"/></attribute>
         <apply-templates select="@*[name()!='datMi'] | *"/>
       </copy>
     </template>
@@ -75,7 +75,7 @@
 
 <!-- cas='[DAT]' && per='' && mi='[MG]'/'[NUMS]'	type=~'adi-'/datMi	up	overwrite -->
   <def-rule id="ST_InterchunkMove2: (type=~'adi' and (cas='[DAT]' and per and mi='[MG]')) datMi←'[NUMS]'" comment="">
-    <template match="//CHUNK[contains(@type, 'adi-') and ./CHUNK[@cas='[DAT]' and per='' and mi='[MG]']]">
+    <template match="//CHUNK[contains(@type, 'adi-') and ./CHUNK[@cas='[DAT]' and @per='' and @mi='[MG]' and @mi != '']]">
       <copy>
         <attribute name="datMi">'[NUMS]'</attribute>
         <apply-templates select="@*[name()!='datMi'] | *"/>
@@ -86,9 +86,9 @@
 
 <!-- si='dobj' && per=''/mi	type=~'adi-'/objMi	up	overwrite -->
   <def-rule id="ST_InterchunkMove2: (type=~'adi' and (si='dobj' and per='')) objMi←mi" comment="">
-    <template match="//CHUNK[contains(@type, 'adi-') and ./CHUNK[@si='dobj' and per='']]">
+    <template match="//CHUNK[contains(@type, 'adi-') and ./CHUNK[@si='dobj' and @per='' and @mi != '']]">
       <copy>
-        <attribute name="objMi"><value-of select="./CHUNK[@si='dobj' and per='']/@mi"/></attribute>
+        <attribute name="objMi"><value-of select="./CHUNK[@si='dobj' and @per='' and @mi != '']/@mi"/></attribute>
         <apply-templates select="@*[name()!='objMi'] | *"/>
       </copy>
     </template>
@@ -96,7 +96,7 @@
 
 <!-- si='dobj' && per='' && leafpos='[Z]'/'[NUMP]'	type=~'adi-'/objMi	up	overwrite -->
   <def-rule id="ST_InterchunkMove2: (type=~'adi' and (si='dobj' and per='' and leafpos='[Z]')) objMi←'[NUMP]'" comment="">
-    <template match="//CHUNK[contains(@type, 'adi-') and ./CHUNK[@si='dobj' and per='' and leafpos='[Z]']]">
+    <template match="//CHUNK[contains(@type, 'adi-') and ./CHUNK[@si='dobj' and not(boolean(@per)) and @leafpos='[Z]']]">
       <copy>
         <attribute name="objMi">[NUMP]</attribute>
         <apply-templates select="@*[name()!='objMi'] | *"/>
@@ -109,9 +109,9 @@
 <!-- # ¿Cuántas manzanas has comprado? ->  Zenbat sagar erosi DITUZU? -->
 <!-- si='dobj' && per='' && qtype='wh'/num	type=~'adi-'/objMi	up	overwrite -->
   <def-rule id="ST_InterchunkMove2: (type=~'adi' and (si='dobj' and per='' and qtype='wh')) objMi←num" comment="">
-    <template match="//CHUNK[contains(@type, 'adi-') and ./CHUNK[@si='dobj' and per='' and qtype='wh']]">
+    <template match="//CHUNK[contains(@type, 'adi-') and ./CHUNK[@si='dobj' and not(boolean(@per)) and @qtype='wh']]">
       <copy>
-        <attribute name="objMi"><value-of select="./CHUNK[@si='dobj' and per='' and qtype='wh']/@num"/></attribute>
+        <attribute name="objMi"><value-of select="./CHUNK[@si='dobj' and not(boolean(@per)) and @qtype='wh']/@num"/></attribute>
         <apply-templates select="@*[name()!='objMi'] | *"/>
       </copy>
     </template>
@@ -121,7 +121,7 @@
 
 <!-- si='subj' && per='' && leafpos='[Z]'/'[NUMP]'	type=~'adi-'/subMi	up	overwrite -->
   <def-rule id="ST_InterchunkMove2: (type=~'adi' and (si='subj' and per='' and leafpos='[Z]')) subMi←'[NUMP]'" comment="">
-    <template match="//CHUNK[contains(@type, 'adi-') and ./CHUNK[@si='subj' and per='' and leafpos='[Z]']]">
+    <template match="//CHUNK[contains(@type, 'adi-') and ./CHUNK[@si='subj' and not(boolean(@per)) and @leafpos='[Z]']]">
       <copy>
         <attribute name="subMi">[NUMP]</attribute>
         <apply-templates select="@*[name()!='subMi'] | *"/>
@@ -132,7 +132,7 @@
 
 <!-- cas='[DAT]' && per='' && leafpos='[Z]'/'[NUMP]'	type=~'adi-'/datMi	up	overwrite -->
   <def-rule id="ST_InterchunkMove2: (type=~'adi' and (cas='[DAT]' and per='' and leafpos='[Z]')) objMi←'[NUMP]'" comment="">
-    <template match="//CHUNK[contains(@type, 'adi-') and ./CHUNK[@cas='[DAT]' and per='' and leafpos='[Z]']]">
+    <template match="//CHUNK[contains(@type, 'adi-') and ./CHUNK[@cas='[DAT]' and not(boolean(@per)) and @leafpos='[Z]']]">
       <copy>
         <attribute name="datMi">[NUMP]</attribute>
         <apply-templates select="@*[name()!='datMi'] | *"/>
@@ -154,7 +154,7 @@
 
 <!-- /'yn' type=~'adi-' && quest='true' && qtype!='wh'/qtype up overwrite -->
   <def-rule id="ST_InterchunkMove2: ((type=~'adi' and quest='true' and qtype!='wh') and si='vsubord') qtype←'yn'" comment="">
-    <template match="//CHUNK[contains(@type, 'adi-') and quest='true' and qtype!='wh']">
+    <template match="//CHUNK[contains(@type, 'adi-') and @quest='true' and @qtype!='wh']">
       <copy>
         <attribute name="qtype">yn</attribute>
         <apply-templates select="@*[name()!='qtype'] | *"/>
